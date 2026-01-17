@@ -1,56 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Portfolio Blog
 
-## Getting Started
+A personal portfolio and blog platform built with Next.js.
 
-First, run the development server:
+Live Site: https://jys1025.github.io/
+
+> **Technical Specification**
+>
+> For detailed information about the project architecture, tech stack, key features, and troubleshooting, please refer to [PROJECT_SPEC.md](./PROJECT_SPEC.md).
+
+## Quick Start
+
+### Installation and Run
 
 ```bash
+# 1. Clone repository
+git clone https://github.com/JYS1025/JYS1025.github.io.git
+cd JYS1025.github.io
+
+# 2. Install dependencies
+npm install
+
+# 3. Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### How to Add Blog Posts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1.  Create a new `.md` file in the `posts/` directory.
+2.  Add the following Frontmatter at the top of the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-## How to Add Blog Posts
-
-Currently, blog posts are managed manually within the code. To add a new post:
-
-1.  Open `app/blog/page.tsx`.
-2.  Locate the `posts` array.
-3.  Add a new object to the array with the following structure:
-
-```typescript
-{
-    title: "Your Post Title",
-    description: "A brief summary of your post.",
-    date: "Month Day, Year",
-    slug: "your-post-slug", // This will be the URL path
-}
+```yaml
+---
+title: "Post Title"
+date: "2024-01-01"
+description: "Post Summary"
+topics: ["Topic1", "Topic2"]
+---
 ```
 
-4.  Create a new file for the post content (if implementing a full blog system later) or update the routing logic to handle the new slug.
-    *   *Note: Currently, the blog links are placeholders. To implement full blog functionality, you would typically create a dynamic route like `app/blog/[slug]/page.tsx` and fetch content from markdown files or a CMS.*
+3.  Push to the `main` branch to automatically deploy via GitHub Actions.

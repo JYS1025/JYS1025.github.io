@@ -1,0 +1,287 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{churchland2012neural}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
+        {{hash=2840924ef3151de2a04e30e0f2562812}{%
+           family={Churchland},
+           familyi={C\bibinitperiod},
+           given={Mark\bibnamedelima M.},
+           giveni={M\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=2f7d2033f2af8255e45b666491f83c85}{%
+           family={Cunningham},
+           familyi={C\bibinitperiod},
+           given={John\bibnamedelima P.},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=57a459bfaef006fadcb574ac33eed8a6}{%
+           family={Kaufman},
+           familyi={K\bibinitperiod},
+           given={Matthew\bibnamedelima T.},
+           giveni={M\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \strng{namehash}{118c0fbc65b9cb45e4d16301676effbd}
+      \strng{fullhash}{118c0fbc65b9cb45e4d16301676effbd}
+      \strng{fullhashraw}{118c0fbc65b9cb45e4d16301676effbd}
+      \strng{bibnamehash}{118c0fbc65b9cb45e4d16301676effbd}
+      \strng{authorbibnamehash}{118c0fbc65b9cb45e4d16301676effbd}
+      \strng{authornamehash}{118c0fbc65b9cb45e4d16301676effbd}
+      \strng{authorfullhash}{118c0fbc65b9cb45e4d16301676effbd}
+      \strng{authorfullhashraw}{118c0fbc65b9cb45e4d16301676effbd}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature}
+      \field{title}{Neural population dynamics during reaching}
+      \field{volume}{487}
+      \field{year}{2012}
+      \field{pages}{51\bibrangedash 56}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1038/nature11129
+      \endverb
+    \endentry
+    \entry{mazor2005transient}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=668f0ea0ba01c0b54ea7e281f19d68ba}{%
+           family={Mazor},
+           familyi={M\bibinitperiod},
+           given={Ofer},
+           giveni={O\bibinitperiod}}}%
+        {{hash=9dd7596e695df39d45393ad93580e432}{%
+           family={Laurent},
+           familyi={L\bibinitperiod},
+           given={Gilles},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{35f98acacf521f55acf16e78bb890d0f}
+      \strng{fullhash}{35f98acacf521f55acf16e78bb890d0f}
+      \strng{fullhashraw}{35f98acacf521f55acf16e78bb890d0f}
+      \strng{bibnamehash}{35f98acacf521f55acf16e78bb890d0f}
+      \strng{authorbibnamehash}{35f98acacf521f55acf16e78bb890d0f}
+      \strng{authornamehash}{35f98acacf521f55acf16e78bb890d0f}
+      \strng{authorfullhash}{35f98acacf521f55acf16e78bb890d0f}
+      \strng{authorfullhashraw}{35f98acacf521f55acf16e78bb890d0f}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0896-6273}
+      \field{journaltitle}{Neuron}
+      \field{number}{4}
+      \field{title}{Transient Dynamics versus Fixed Points in Odor Representations by Locust Antennal Lobe Projection Neurons}
+      \field{volume}{48}
+      \field{year}{2005}
+      \field{pages}{661\bibrangedash 673}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1016/j.neuron.2005.09.032
+      \endverb
+    \endentry
+    \entry{wimmer2014bump}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
+        {{hash=2000cd223429cf5bcadfaadd30bb9b42}{%
+           family={Wimmer},
+           familyi={W\bibinitperiod},
+           given={Klaus},
+           giveni={K\bibinitperiod}}}%
+        {{hash=3fa788c68f2848ff9b42ac38e44ab68a}{%
+           family={Nykamp},
+           familyi={N\bibinitperiod},
+           given={Duane\bibnamedelima Q.},
+           giveni={D\bibinitperiod\bibinitdelim Q\bibinitperiod}}}%
+        {{hash=428425620e9a0822cbf4d206eabb1612}{%
+           family={Constantinidis},
+           familyi={C\bibinitperiod},
+           given={Christos},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{cc9107e597b713c72649b3edfffc9194}
+      \strng{fullhash}{cc9107e597b713c72649b3edfffc9194}
+      \strng{fullhashraw}{cc9107e597b713c72649b3edfffc9194}
+      \strng{bibnamehash}{cc9107e597b713c72649b3edfffc9194}
+      \strng{authorbibnamehash}{cc9107e597b713c72649b3edfffc9194}
+      \strng{authornamehash}{cc9107e597b713c72649b3edfffc9194}
+      \strng{authorfullhash}{cc9107e597b713c72649b3edfffc9194}
+      \strng{authorfullhashraw}{cc9107e597b713c72649b3edfffc9194}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature Neuroscience}
+      \field{number}{3}
+      \field{title}{Bump attractor dynamics in prefrontal cortex explains behavioral precision in spatial working memory}
+      \field{volume}{17}
+      \field{year}{2014}
+      \field{pages}{431\bibrangedash 439}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1038/nn.3645
+      \endverb
+    \endentry
+    \entry{mante2013context}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
+        {{hash=e6e6f66bd5d54a3d13163277cc8a13b4}{%
+           family={Mante},
+           familyi={M\bibinitperiod},
+           given={Valerio},
+           giveni={V\bibinitperiod}}}%
+        {{hash=5a749e1e52f9f1fe3a1b623cc769bb42}{%
+           family={Sussillo},
+           familyi={S\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=b88f3898557dfebe05a2ff141f5e17b1}{%
+           family={Shenoy},
+           familyi={S\bibinitperiod},
+           given={Krishna\bibnamedelima V.},
+           giveni={K\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+      }
+      \strng{namehash}{94b24260bf0d66d015fe3904ac6702b6}
+      \strng{fullhash}{94b24260bf0d66d015fe3904ac6702b6}
+      \strng{fullhashraw}{94b24260bf0d66d015fe3904ac6702b6}
+      \strng{bibnamehash}{94b24260bf0d66d015fe3904ac6702b6}
+      \strng{authorbibnamehash}{94b24260bf0d66d015fe3904ac6702b6}
+      \strng{authornamehash}{94b24260bf0d66d015fe3904ac6702b6}
+      \strng{authorfullhash}{94b24260bf0d66d015fe3904ac6702b6}
+      \strng{authorfullhashraw}{94b24260bf0d66d015fe3904ac6702b6}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature}
+      \field{title}{Context-dependent computation by recurrent dynamics in prefrontal cortex}
+      \field{volume}{503}
+      \field{year}{2013}
+      \field{pages}{78\bibrangedash 84}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1038/nature12742
+      \endverb
+    \endentry
+    \entry{yu2009gpfa}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=f150ef056b01a7a3008359f20f127fcf}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Byron\bibnamedelima M.},
+           giveni={B\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=2f7d2033f2af8255e45b666491f83c85}{%
+           family={Cunningham},
+           familyi={C\bibinitperiod},
+           given={John\bibnamedelima P.},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=fc689c9981a30218680453dcedd2ae8f}{%
+           family={Santhanam},
+           familyi={S\bibinitperiod},
+           given={Gopal},
+           giveni={G\bibinitperiod}}}%
+        {{hash=20dcb017b3ab1e3c2941025b0c70b9cc}{%
+           family={Ryu},
+           familyi={R\bibinitperiod},
+           given={Stephen\bibnamedelima I.},
+           giveni={S\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+        {{hash=b88f3898557dfebe05a2ff141f5e17b1}{%
+           family={Shenoy},
+           familyi={S\bibinitperiod},
+           given={Krishna\bibnamedelima V.},
+           giveni={K\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=277241c95489c0dc41e83a400c407cc8}{%
+           family={Sahani},
+           familyi={S\bibinitperiod},
+           given={Maneesh},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{c9cfa71b86a3b114bbf69e4d5a81a12a}
+      \strng{fullhash}{98155cb85c3d421f988095b428b1a4c7}
+      \strng{fullhashraw}{98155cb85c3d421f988095b428b1a4c7}
+      \strng{bibnamehash}{c9cfa71b86a3b114bbf69e4d5a81a12a}
+      \strng{authorbibnamehash}{c9cfa71b86a3b114bbf69e4d5a81a12a}
+      \strng{authornamehash}{c9cfa71b86a3b114bbf69e4d5a81a12a}
+      \strng{authorfullhash}{98155cb85c3d421f988095b428b1a4c7}
+      \strng{authorfullhashraw}{98155cb85c3d421f988095b428b1a4c7}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Neurophysiology}
+      \field{number}{1}
+      \field{title}{Gaussian-process factor analysis for low-dimensional single-trial analysis of neural population activity}
+      \field{volume}{102}
+      \field{year}{2009}
+      \field{pages}{614\bibrangedash 635}
+      \range{pages}{22}
+      \verb{doi}
+      \verb 10.1152/jn.90941.2008
+      \endverb
+    \endentry
+    \entry{pandarinath2018sae}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
+        {{hash=b3a39e59a7ef40a076a7147fce2c4bab}{%
+           family={Pandarinath},
+           familyi={P\bibinitperiod},
+           given={Chethan},
+           giveni={C\bibinitperiod}}}%
+        {{hash=21c2088396fd897bf74cc103fa6fc8eb}{%
+           family={O'Shea},
+           familyi={O\bibinitperiod},
+           given={Daniel\bibnamedelima J.},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=d643555caa3fb3f4679210b2b82c7e01}{%
+           family={Collins},
+           familyi={C\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{eb462e72d4bbbc5488bc5096ed80c4d2}
+      \strng{fullhash}{eb462e72d4bbbc5488bc5096ed80c4d2}
+      \strng{fullhashraw}{eb462e72d4bbbc5488bc5096ed80c4d2}
+      \strng{bibnamehash}{eb462e72d4bbbc5488bc5096ed80c4d2}
+      \strng{authorbibnamehash}{eb462e72d4bbbc5488bc5096ed80c4d2}
+      \strng{authornamehash}{eb462e72d4bbbc5488bc5096ed80c4d2}
+      \strng{authorfullhash}{eb462e72d4bbbc5488bc5096ed80c4d2}
+      \strng{authorfullhashraw}{eb462e72d4bbbc5488bc5096ed80c4d2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature Methods}
+      \field{title}{Inferring single-trial neural population dynamics using sequential auto-encoders}
+      \field{volume}{15}
+      \field{year}{2018}
+      \field{pages}{805\bibrangedash 815}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1038/s41592-018-0109-9
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

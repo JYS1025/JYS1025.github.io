@@ -1,6 +1,6 @@
 ---
 title: "Anhedonia"
-date: "2026-01-17"
+date: "2024-06-13"
 description: "'왜 나는 너를 사랑하는가' 라는 소설의 한 단락이다."
 topics: ["Essay"]
 ---

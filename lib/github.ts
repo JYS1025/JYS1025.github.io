@@ -19,7 +19,7 @@ export async function getGithubRepos(): Promise<Project[]> {
 
     try {
         const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=10`, {
-            next: { revalidate: 3600 }, // Revalidate every hour
+            next: { revalidate: 60 }, // Revalidate every minute
         })
 
         if (!response.ok) {
@@ -27,6 +27,9 @@ export async function getGithubRepos(): Promise<Project[]> {
         }
 
         const repos = await response.json()
+
+        // Debug logging
+        console.log("Fetched Repos:", repos.map((r: any) => ({ name: r.name, description: r.description })));
 
         return repos
             .filter((repo: any) => !repo.fork) // Filter out forks if desired

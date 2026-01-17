@@ -156,3 +156,12 @@ However, a significant gap remains: the inability to fully interpret these funct
 ## Conclusion
 
 The methodological framework of constructing mathematical latent spaces and analyzing their internal dynamics is rapidly expanding, driven by a powerful synergy with modern machine learning and deep learning techniques. This review posits that this approach occupies a strategic position, bridging the gap between the understanding of high-level neural computations and low-level neural circuit mechanisms. As our comprehension of the brain as a dynamical system deepens, it is expected to provide not merely descriptive observations, but mechanistic insights essential for interpreting biological circuitry. Ultimately, the rigorous analysis of neural latent dynamics serves as a foundational step toward unraveling the fundamental principles of biological intelligence.
+
+## References
+
+- **Churchland et al. (2012)**: Churchland, M. M., Cunningham, J. P., Kaufman, M. T., et al. (2012). Neural population dynamics during reaching. *Nature*, 487, 51–56.
+- **Mazor & Laurent (2005)**: Mazor, O., & Laurent, G. (2005). Transient Dynamics versus Fixed Points in Odor Representations by Locust Antennal Lobe Projection Neurons. *Neuron*, 48(4), 661–673.
+- **Wimmer et al. (2014)**: Wimmer, K., Nykamp, D. Q., Constantinidis, C., et al. (2014). Bump attractor dynamics in prefrontal cortex explains behavioral precision in spatial working memory. *Nature Neuroscience*, 17(3), 431–439.
+- **Mante et al. (2013)**: Mante, V., Sussillo, D., Shenoy, K. V., et al. (2013). Context-dependent computation by recurrent dynamics in prefrontal cortex. *Nature*, 503, 78–84.
+- **Yu et al. (2009)**: Yu, B. M., Cunningham, J. P., Santhanam, G., Ryu, S. I., Shenoy, K. V., & Sahani, M. (2009). Gaussian-process factor analysis for low-dimensional single-trial analysis of neural population activity. *Journal of Neurophysiology*, 102(1), 614–635.
+- **Pandarinath et al. (2018)**: Pandarinath, C., O'Shea, D. J., Collins, J., et al. (2018). Inferring single-trial neural population dynamics using sequential auto-encoders. *Nature Methods*, 15, 805–815.

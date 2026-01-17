@@ -11,7 +11,7 @@ import {
 
 const topics = [
     { name: "Deep Learning and Generative Model", href: "/blog/topic/deep-learning" },
-    { name: "Brain and Cognitive Science", href: "/blog/topic/brain-science" },
+    { name: "Brain and Cognitive Science", href: "/blog/topic/brain-and-cognitive-science" },
     { name: "Book Review", href: "/blog/topic/book-review" },
     { name: "Essay", href: "/blog/topic/essay" },
 ]

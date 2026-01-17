@@ -2,7 +2,7 @@
 title: "A Dynamic Analysis of the Neural Latent Space"
 date: "2024-06-20"
 description: "A review of groundbreaking discoveries in neural dynamics across motor control, sensory processing, and cognitive processes, along with an overview of analytical methods."
-topics: ["Brain Cognitive Science", "Neuroscience", "Neural Dynamics"]
+topics: ["Brain and Cognitive Science", "Neuroscience", "Neural Dynamics"]
 ---
 
 Everything we call "self"—our memories, emotions, decisions, and the way we perceive the world—emerges entirely from the physical activity of brain tissue. Understanding how this remarkable organ generates mind from matter stands as one of the most profound challenges in science. Yet a fundamental question remains: how can we systematically analyze the principles underlying brain function and bring cognitive processes into a rigorous mathematical framework?

@@ -27,10 +27,10 @@ export function getPosts(): BlogPost[] {
 
     const fileNames = fs.readdirSync(postsDirectory)
     const allPostsData = fileNames
-        .filter((fileName) => fileName.endsWith('.md'))
+        .filter((fileName) => fileName.toLowerCase().endsWith('.md'))
         .map((fileName) => {
-            // Remove ".md" from file name to get slug
-            const slug = fileName.replace(/\.md$/, '')
+            // Remove ".md" (case insensitive) from file name to get slug
+            const slug = fileName.replace(/\.md$/i, '').normalize('NFC')
 
             // Read markdown file as string
             const fullPath = path.join(postsDirectory, fileName)

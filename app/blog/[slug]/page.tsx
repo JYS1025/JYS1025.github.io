@@ -1,6 +1,8 @@
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
+import rehypeSlug from "rehype-slug"
 import { getPosts, getPostBySlug } from "@/lib/posts"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -15,9 +17,11 @@ interface PageProps {
 
 export async function generateStaticParams() {
     const posts = getPosts()
-    return posts.map((post) => ({
-        slug: post.slug,
-    }))
+    console.log("Generated Slugs:", posts.map(p => p.slug))
+    return posts.flatMap((post) => [
+        { slug: post.slug },
+        { slug: encodeURIComponent(post.slug) }
+    ])
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -68,8 +72,23 @@ export default async function PostPage({ params }: PageProps) {
 
                 <div className="prose prose-zinc dark:prose-invert max-w-none">
                     <ReactMarkdown
+                        remarkPlugins={[remarkGfm]}
+                        rehypePlugins={[rehypeSlug]}
                         components={{
                             p: ({ node, ...props }) => <p className="mb-8 leading-relaxed" {...props} />,
+                            blockquote: ({ node, ...props }) => (
+                                <blockquote className="border-l-4 border-primary pl-4 italic my-8" {...props} />
+                            ),
+                            h1: ({ node, ...props }) => <h1 className="text-3xl font-bold mt-12 mb-6" {...props} />,
+                            h2: ({ node, ...props }) => <h2 className="text-2xl font-bold mt-10 mb-5" {...props} />,
+                            h3: ({ node, ...props }) => <h3 className="text-xl font-bold mt-8 mb-4" {...props} />,
+                            table: ({ node, ...props }) => (
+                                <div className="overflow-x-auto my-8">
+                                    <table className="min-w-full divide-y divide-border" {...props} />
+                                </div>
+                            ),
+                            th: ({ node, ...props }) => <th className="px-4 py-2 bg-muted font-semibold text-left" {...props} />,
+                            td: ({ node, ...props }) => <td className="px-4 py-2 border-t border-border" {...props} />,
                         }}
                     >
                         {post.content}

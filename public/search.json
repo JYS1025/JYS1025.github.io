@@ -1,0 +1,487 @@
+[
+  {
+    "type": "Post",
+    "title": "Anhedonia",
+    "description": "'왜 나는 너를 사랑하는가' 라는 소설의 한 단락이다.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/Anhedosia",
+    "date": "2024-06-13"
+  },
+  {
+    "type": "Post",
+    "title": "Ernst Kapp and AI",
+    "description": "에른스트 카프의 자기인식에 대한 철학을 주제로 한 짧은 영상을 봤다. 핵심만 요약하자면 기계가 유기체(인간)의 확장이라는 것.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/Ernst Kapp and AI",
+    "date": "2024-11-23"
+  },
+  {
+    "type": "Post",
+    "title": "A priori neuron",
+    "description": "칸트의 선험적 지식(a priori)은 현대의 많은 사람들에게 불편하게 받아들여진다.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/a priori neuron",
+    "date": "2023-08-02"
+  },
+  {
+    "type": "Post",
+    "title": "A Dynamic Analysis of the Neural Latent Space",
+    "description": "A review of groundbreaking discoveries in neural dynamics across motor control, sensory processing, and cognitive processes, along with an overview of analytical methods.",
+    "tags": [
+      "Brain and Cognitive Science",
+      "Neuroscience",
+      "Neural Dynamics"
+    ],
+    "url": "/blog/neural-latent-space",
+    "date": "2025-12-16"
+  },
+  {
+    "type": "Post",
+    "title": "Philosophical Discourses on Guy Steele’s “Growing a Language”",
+    "description": "프로그래밍 언어와 자연어의 유사성, 그리고 Guy Steele의 'Growing a Language' 강연을 통해 본 언어의 확장성과 철학적 담론.",
+    "tags": [
+      "Essay",
+      "Philosophy",
+      "Programming Language"
+    ],
+    "url": "/blog/philosophical-discourses-on-growing-a-language",
+    "date": "2026-01-18"
+  },
+  {
+    "type": "Post",
+    "title": "The Myth of Completeness: Twelve Categories, Redundancy, and the Procedural Gap in Active Synthesis",
+    "description": "An essay questioning the completeness and necessity of Kant's twelve categories, exploring redundancies and the procedural gap in active synthesis.",
+    "tags": [
+      "Philosophy",
+      "Kant",
+      "Essay"
+    ],
+    "url": "/blog/the-myth-of-completeness",
+    "date": "2026-01-07"
+  },
+  {
+    "type": "Post",
+    "title": "éphémère",
+    "description": "프랑스어로 ‘하루살이’ 라는 뜻이다. 동시에 ‘덧없는’ 이라는 형용사로 쓰이기도 한다.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/éphémère",
+    "date": "2025-09-27"
+  },
+  {
+    "type": "Post",
+    "title": "가난의 가난",
+    "description": "나도 좋은 글을 쓸 때가 있었다. 요즘은 내 손을 거쳐가는 문장들이 그렇게 세련되지 않지만, 지난 날에 써내려간 글귀 중에는 지금 내가 초라해질 만큼 가슴을 울리는 문장들이 있다.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/가난의 가난",
+    "date": "2023-05-18"
+  },
+  {
+    "type": "Post",
+    "title": "공부하는 이유",
+    "description": "어릴적. 나는 공부하는 것이 좋았다. 칭찬받는 것이 좋았고 또래의 우러러봄을 온몸으로 만끽하는것도 신나는 경험이었지만 그것보다도 먼저 공부하는 것을 좋아했다.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/공부하는 이유",
+    "date": "2023-07-06"
+  },
+  {
+    "type": "Post",
+    "title": "과자같은것들",
+    "description": "그런 친구가 있었다. 화를 잔뜩 품은 날이면 과자를 한 움큼 집어 사 오곤 서랍에 넣어 잠가두는.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/과자같은것들",
+    "date": "2024-12-21"
+  },
+  {
+    "type": "Post",
+    "title": "관념",
+    "description": "“그런데 당신은 하나의 관념을 위해서는 죽을 수 있습니다. 눈에 빤히 보입니다. 그런데 나는 어떤 관념 때문에 죽는 사람들에 대해선 신물이 납니다.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/관념",
+    "date": "2024-12-03"
+  },
+  {
+    "type": "Post",
+    "title": "굽은 판자",
+    "description": "기댄다는 것은 자신의 중심을 그 밖에 두는 것이다. 굽어진 판자처럼 제 중심이 그 밖에 있는 것들은 홀로 서있지를 못한다.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/굽은 판자",
+    "date": "2023-01-05"
+  },
+  {
+    "type": "Post",
+    "title": "내가 행복한 이유 - 그렉 이건",
+    "description": "‘겨울 서점’의 추천으로 읽은 그렉이건의 첫 번째 SF 소설이다.",
+    "tags": [
+      "Book Review"
+    ],
+    "url": "/blog/내가 행복한 이유 - 그렉 이건",
+    "date": "2024-08-21"
+  },
+  {
+    "type": "Post",
+    "title": "뇌 - 베르나르베르베르",
+    "description": "Bernard Werber's novel 'L'Ultime Secret' is a fascinating mystery thriller.",
+    "tags": [
+      "Book Review"
+    ],
+    "url": "/blog/뇌 - 베르나르베르베르",
+    "date": "2024-12-04"
+  },
+  {
+    "type": "Post",
+    "title": "다크초콜릿",
+    "description": "사랑은 단맛이 아니다. 다크초콜릿에 가깝다. 씁쓸한 내음을 입안에 굴리다 보면 단란한 선율같은 향이 구석 구석에 퍼지는 그런 맛에 가깝다.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/다크초콜릿",
+    "date": "2025-02-06"
+  },
+  {
+    "type": "Post",
+    "title": "달과 6펜스 - 서미셋 몸",
+    "description": "서미셋 몸의 대표작 달과 6펜스. 너무 저명한 고전이기에 언젠가 읽겠다 했는데 오늘 눈에 밟혔나 보다.",
+    "tags": [
+      "Book Review"
+    ],
+    "url": "/blog/달과 6펜스 - 서미셋 몸",
+    "date": "2023-05-09"
+  },
+  {
+    "type": "Post",
+    "title": "담론으로의 사랑",
+    "description": "사랑. 누구나 쉽게 거창한 얘기를 늘어놓지만 함부로 답을 내놓을 순 없는 주제다.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/담론으로서 사랑",
+    "date": "2025-02-07"
+  },
+  {
+    "type": "Post",
+    "title": "데미안 - 헤르만 헤세",
+    "description": "헤르만 헤세의 데미안. 왜 읽고 싶어졌는지는 모르겠지만 갑자기 이끌려 요 며칠 정독하게 되었다.",
+    "tags": [
+      "Book Review"
+    ],
+    "url": "/blog/데미안 - 헤르만 헤세",
+    "date": "2024-03-12"
+  },
+  {
+    "type": "Post",
+    "title": "랑시에르의 미학",
+    "description": "랑시에르는 19세기 프랑스 시인, 작가로 그의 미학은 현대에도 인용되고 있다.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/랑시에르의 미학",
+    "date": "2025-04-10"
+  },
+  {
+    "type": "Post",
+    "title": "몸집 키우기",
+    "description": "남성 사회에서 가장 흔하게 보이는 현상은 자신의 몸집을 원래 크기보다 키우려는 성질이다.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/몸집 키우기",
+    "date": "2025-05-11"
+  },
+  {
+    "type": "Post",
+    "title": "번지르르",
+    "description": "요 며칠. 정확히 말하면 지난 일주일동안 내 가슴은 여러번 요동쳤다. 냉랭한 차분함과 붕괴된 불안함 사이를 난 몇번을 두근거렸다.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/번지르르",
+    "date": "2024-08-28"
+  },
+  {
+    "type": "Post",
+    "title": "베인자를 베는자",
+    "description": "과격한 논쟁을 피하고 싶어 한동안 눈을 감고 내면을 가다듬고 있었는데 그 잠든 정신을 깨우려는지 알고리즘이 이 영상으로 날 이끌었다.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/베인자를 베는자",
+    "date": "2024-01-07"
+  },
+  {
+    "type": "Post",
+    "title": "별빛의 하늘",
+    "description": "우리는 함부로 태양을 만들어선 안된다. 그 홀로 존속하는 대상에게 우리의 빛을 모두 맡기어서는 안된다.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/별빛의 하늘",
+    "date": "2023-12-31"
+  },
+  {
+    "type": "Post",
+    "title": "빛 바랜것들",
+    "description": "빛바랜 것들. 내가 사랑하는 건 그런 것들이다.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/빛바랜것들",
+    "date": "2024-04-24"
+  },
+  {
+    "type": "Post",
+    "title": "사랑이라 말해요 - 사랑의 회의주의",
+    "description": "'사랑이라 말해요'라는 드라마를 요즘 보고 있다.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/사랑의 회의주의",
+    "date": "2024-03-31"
+  },
+  {
+    "type": "Post",
+    "title": "사랑의 기술 - 에리히 프롬",
+    "description": "이 책을 읽기로 마음 먹은건 알랭 드 보통의 소설에서 등장한 주인공의 모습과 똑같았다.",
+    "tags": [
+      "Book Review"
+    ],
+    "url": "/blog/사랑의기술 - 에리히 프롬",
+    "date": "2025-02-06"
+  },
+  {
+    "type": "Post",
+    "title": "성수동 골목",
+    "description": "성수동 골목. 비가오면 을지로처럼 차가운 기계음을 적시는 그 거리는 이제 내 가슴을 아리게하진 않지만 여전히 향이 짙은 곳이다.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/성수동 골목",
+    "date": "2024-02-16"
+  },
+  {
+    "type": "Post",
+    "title": "안티 크리스트 (Der Antichrist) - 프리드리히 니체",
+    "description": "학업에 치여 책을 오래 멀리하다가 오랜만에 손에 들어올린 책이다.",
+    "tags": [
+      "Book Review"
+    ],
+    "url": "/blog/안티 크리스트 - 프리드리히 니체",
+    "date": "2025-07-13"
+  },
+  {
+    "type": "Post",
+    "title": "연대감",
+    "description": "연대감. 우리 일상과 사회에 스며들어 사이사이에 끈적하게 묻어있는 느낌이다.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/연대감",
+    "date": "2024-04-04"
+  },
+  {
+    "type": "Post",
+    "title": "염세주의",
+    "description": "사람이 한 곳에 오래 멈춰있기 시작하면 어떤 형태로든 염세가 그 속으로 스며들기 마련이다.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/염세주의",
+    "date": "2024-08-29"
+  },
+  {
+    "type": "Post",
+    "title": "왜 나는 너를 사랑하는가 - 알랭 드 보통",
+    "description": "A review of Alain de Botton's Essays in Love.",
+    "tags": [
+      "Book Review",
+      "Essay"
+    ],
+    "url": "/blog/왜 나는 너를 사랑하는가 - 알랭 드 보통",
+    "date": "2023-03-19"
+  },
+  {
+    "type": "Post",
+    "title": "왜 살아야 하는가 - 미하엘 하우스켈러",
+    "description": "과연 무엇을 위해 살아야 하는가? 라는 질문은 무릇 나만의 질문이 아닐 것이다.",
+    "tags": [
+      "Book Review"
+    ],
+    "url": "/blog/왜 살아야 하는가 - 미하엘 하우스 켈러",
+    "date": "2023-10-19"
+  },
+  {
+    "type": "Post",
+    "title": "우리는 왜 살아야하는가",
+    "description": "떠올릴수록 우울한 내용이긴 하나 멈출 수 없는 흐름린 것 처럼 태어나서부터 이어오던 질문이다.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/우리는 왜 살아야 하는가",
+    "date": "2025-03-31"
+  },
+  {
+    "type": "Post",
+    "title": "이방인 - 알베르 카뮈",
+    "description": "오늘 엄마가 죽었다. 아니, 어쩌면 어제였는지도 모른다.",
+    "tags": [
+      "Book Review"
+    ],
+    "url": "/blog/이방인 - 알베르 카뮈",
+    "date": "2025-01-01"
+  },
+  {
+    "type": "Post",
+    "title": "자만함",
+    "description": "단단하다는 자만. 세상을 짊어지고 있다는 자만. 모두 버텨낼 수 있을만큼 강하다는 자만.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/자만함",
+    "date": "2023-07-04"
+  },
+  {
+    "type": "Post",
+    "title": "작별인사 - 김영하",
+    "description": "김영하 작가님은 여러 미디어를 통해 미리 접하고 철학적인 생각이 깊은 분이라 생각하고 있었다.",
+    "tags": [
+      "Book Review"
+    ],
+    "url": "/blog/작별인사 - 김영하",
+    "date": "2024-05-14"
+  },
+  {
+    "type": "Post",
+    "title": "정서적 전체주의",
+    "description": "대부분의 사람들은 공개적으로 우리에게 어떤 역할을 강요하지 않는다.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/정서적 전체주의",
+    "date": "2025-01-31"
+  },
+  {
+    "type": "Post",
+    "title": "제자리로",
+    "description": "오늘 놀라운 것을 발견했다. 내가 사랑한 대상과 단절될 때에 그리고 그것을 회복할 때에 그 대상이 내 내면으로 되었다는 것.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/제자리로",
+    "date": "2025-01-30"
+  },
+  {
+    "type": "Post",
+    "title": "중용에 관하여",
+    "description": "중학교 도덕시간에 배운 개념중에 기억에 남는건 ‘중용’ 이거 하나 뿐이었다.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/중용에 관하여",
+    "date": "2024-08-05"
+  },
+  {
+    "type": "Post",
+    "title": "진리와 혐오",
+    "description": "혐오는 어디로 부터 오는가. 역설적이게도 혐오는 정의에 대한 신앙심으로 부터 온다.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/진리와 혐오",
+    "date": "2025-07-16"
+  },
+  {
+    "type": "Post",
+    "title": "철학자와 소설가",
+    "description": "이성은 본능에 선엄한다. 인간이 내리는 논리적 추론과 사유는 독립적으로 작동한다.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/철학자와 소설가",
+    "date": "2023-12-15"
+  },
+  {
+    "type": "Post",
+    "title": "추운날",
+    "description": "추위가 서려온다. 내쉬는 숨에 서리는 김이 진해질수록 비강을 뚫고 들어오는 새벽의 찬 공기가 뚜렷해진다.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/추운날",
+    "date": "2023-10-22"
+  },
+  {
+    "type": "Post",
+    "title": "휘황찬란한 것들에 대하여",
+    "description": "빛나는 것들이 있다. 누구도 쉽게 지나칠 수 없는 것. 특이하고 갖고 싶은 것. 혹은 그런 장소, 그런 사람.",
+    "tags": [
+      "Essay"
+    ],
+    "url": "/blog/휘황찬란한 것들에 대하여",
+    "date": "2024-03-26"
+  },
+  {
+    "type": "Project",
+    "title": "JYS1025.github.io",
+    "description": "Personal Portfolio Blog",
+    "tags": [],
+    "url": "https://github.com/JYS1025/JYS1025.github.io",
+    "date": "2026-01-17T15:16:32Z"
+  },
+  {
+    "type": "Project",
+    "title": ".ai-vector-generation",
+    "description": "AI VectorGen Studio is a desktop application that generates high-quality, editable vector graphics (SVG) from text descriptions (prompts).",
+    "tags": [],
+    "url": "https://github.com/JYS1025/.ai-vector-generation",
+    "date": "2026-01-17T14:40:42Z"
+  },
+  {
+    "type": "Project",
+    "title": "PicToPoem",
+    "description": "PicToPoem is an AI-powered web application that analyzes your uploaded images and recommends a fitting passage from a literary work.",
+    "tags": [],
+    "url": "https://github.com/JYS1025/PicToPoem",
+    "date": "2026-01-17T14:40:03Z"
+  },
+  {
+    "type": "Project",
+    "title": "news-bias-analyzer",
+    "description": "NewsTrust is a web-based application designed to analyze South Korean news articles for political bias and journalistic reliability.",
+    "tags": [],
+    "url": "https://github.com/JYS1025/news-bias-analyzer",
+    "date": "2026-01-17T14:38:43Z"
+  },
+  {
+    "type": "Project",
+    "title": "JYS1025",
+    "description": "github public profile",
+    "tags": [],
+    "url": "https://github.com/JYS1025/JYS1025",
+    "date": "2026-01-17T14:38:09Z"
+  },
+  {
+    "type": "Project",
+    "title": "python_auto_trading",
+    "description": "automate stock trading using python and Open API",
+    "tags": [],
+    "url": "https://github.com/JYS1025/python_auto_trading",
+    "date": "2025-08-26T13:54:28Z"
+  }
+]

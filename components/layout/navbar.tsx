@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { ModeToggle } from "@/components/ui/mode-toggle"
 import { Button } from "@/components/ui/button"
+import { SearchCommand } from "@/components/search-command"
 
 const navItems = [
     { name: "Home", href: "/" },
@@ -69,7 +70,8 @@ export function Navbar() {
                 </div>
 
                 <div className="flex items-center justify-end space-x-2 md:flex-1">
-                    <nav className="flex items-center">
+                    <nav className="flex items-center gap-2">
+                        <SearchCommand />
                         <ModeToggle />
                     </nav>
                 </div>

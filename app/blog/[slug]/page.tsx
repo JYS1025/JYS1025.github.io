@@ -2,7 +2,10 @@ import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
+import remarkMath from "remark-math"
 import rehypeSlug from "rehype-slug"
+import rehypeKatex from "rehype-katex"
+import "katex/dist/katex.min.css"
 import { getPosts, getPostBySlug } from "@/lib/posts"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -72,8 +75,8 @@ export default async function PostPage({ params }: PageProps) {
 
                 <div className="prose prose-zinc dark:prose-invert max-w-none">
                     <ReactMarkdown
-                        remarkPlugins={[remarkGfm]}
-                        rehypePlugins={[rehypeSlug]}
+                        remarkPlugins={[remarkGfm, remarkMath]}
+                        rehypePlugins={[rehypeSlug, rehypeKatex]}
                         components={{
                             p: ({ node, ...props }) => <p className="mb-8 leading-relaxed" {...props} />,
                             blockquote: ({ node, ...props }) => (

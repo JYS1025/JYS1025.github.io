@@ -14,7 +14,8 @@
     "title": "Ernst Kapp and AI",
     "description": "에른스트 카프의 자기인식에 대한 철학을 주제로 한 짧은 영상을 봤다. 핵심만 요약하자면 기계가 유기체(인간)의 확장이라는 것.",
     "tags": [
-      "Essay"
+      "Essay",
+      "Deep Learning"
     ],
     "url": "/blog/Ernst Kapp and AI",
     "date": "2024-11-23"
@@ -24,7 +25,8 @@
     "title": "A priori neuron",
     "description": "칸트의 선험적 지식(a priori)은 현대의 많은 사람들에게 불편하게 받아들여진다.",
     "tags": [
-      "Essay"
+      "Essay",
+      "Deep Learning"
     ],
     "url": "/blog/a priori neuron",
     "date": "2023-08-02"
@@ -36,7 +38,8 @@
     "tags": [
       "Brain and Cognitive Science",
       "Neuroscience",
-      "Neural Dynamics"
+      "Neural Dynamics",
+      "Deep Learning"
     ],
     "url": "/blog/neural-latent-space",
     "date": "2025-12-16"
@@ -442,7 +445,15 @@
     "description": "Personal Portfolio Blog",
     "tags": [],
     "url": "https://github.com/JYS1025/JYS1025.github.io",
-    "date": "2026-01-17T15:16:32Z"
+    "date": "2026-01-18T07:54:56Z"
+  },
+  {
+    "type": "Project",
+    "title": "gestaltzerfall-llm",
+    "description": "Computational phenomenology study of semantic satiation in neural networks. Comparing how GPT-2, BERT, and Mamba handle extreme repetition reveals causal models drift into hallucination while bidirectional models stay stable—suggesting attention directionality preserves semantic identity.",
+    "tags": [],
+    "url": "https://github.com/JYS1025/gestaltzerfall-llm",
+    "date": "2026-01-18T07:51:49Z"
   },
   {
     "type": "Project",

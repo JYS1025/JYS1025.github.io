@@ -42,7 +42,7 @@ async function generateSearchIndex() {
     // 2. Fetch GitHub Projects
     try {
         console.log('Fetching GitHub projects...');
-        const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=10`);
+        const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`);
 
         if (response.ok) {
             const repos = await response.json();

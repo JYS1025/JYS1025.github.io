@@ -18,7 +18,7 @@ export async function getGithubRepos(): Promise<Project[]> {
     */
 
     try {
-        const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=10`, {
+        const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`, {
             next: { revalidate: 60 }, // Revalidate every minute
         })
 

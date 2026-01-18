@@ -2,7 +2,7 @@
 title: "Ernst Kapp and AI"
 date: "2024-11-23"
 description: "에른스트 카프의 자기인식에 대한 철학을 주제로 한 짧은 영상을 봤다. 핵심만 요약하자면 기계가 유기체(인간)의 확장이라는 것."
-topics: ["Essay"]
+topics: ["Essay", "Deep Learning"]
 ---
 
 # Ernst kapp and AI

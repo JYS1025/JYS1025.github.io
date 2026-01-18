@@ -2,7 +2,7 @@
 title: "A priori neuron"
 date: "2023-08-02"
 description: "칸트의 선험적 지식(a priori)은 현대의 많은 사람들에게 불편하게 받아들여진다."
-topics: ["Essay"]
+topics: ["Essay", "Deep Learning"]
 ---
 
 # A priori neuron

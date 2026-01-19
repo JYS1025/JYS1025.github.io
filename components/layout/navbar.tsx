@@ -5,11 +5,39 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import dynamic from "next/dynamic"
 
 import { cn } from "@/lib/utils"
 import { ModeToggle } from "@/components/ui/mode-toggle"
 import { Button } from "@/components/ui/button"
-import { SearchCommand } from "@/components/search-command"
+import { Search } from "lucide-react"
+
+interface SearchTriggerProps {
+    onClick: () => void
+}
+
+function SearchTrigger({ onClick }: SearchTriggerProps) {
+    return (
+        <Button
+            variant="outline"
+            className={cn(
+                "relative h-9 w-9 p-0 xl:h-10 xl:w-60 xl:justify-start xl:px-3 xl:py-2",
+                "text-muted-foreground"
+            )}
+            onClick={onClick}
+        >
+            <Search className="h-4 w-4 xl:mr-2" />
+            <span className="hidden xl:inline-flex">Search...</span>
+            <kbd className="pointer-events-none absolute right-1.5 top-2 hidden h-6 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 xl:flex">
+                <span className="text-xs">⌘</span>K
+            </kbd>
+        </Button>
+    )
+}
+
+const SearchDialog = dynamic(() => import("@/components/search-dialog"), {
+    ssr: false,
+})
 
 const navItems = [
     { name: "Home", href: "/" },
@@ -21,12 +49,25 @@ const navItems = [
 
 export function Navbar() {
     const [isOpen, setIsOpen] = React.useState(false)
+    const [searchOpen, setSearchOpen] = React.useState(false)
     const pathname = usePathname()
 
     const handleScrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" })
         setIsOpen(false)
     }
+
+    React.useEffect(() => {
+        const down = (e: KeyboardEvent) => {
+            if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+                e.preventDefault()
+                setSearchOpen((open) => !open)
+            }
+        }
+
+        document.addEventListener("keydown", down)
+        return () => document.removeEventListener("keydown", down)
+    }, [])
 
     return (
         <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -71,7 +112,8 @@ export function Navbar() {
 
                 <div className="flex items-center justify-end space-x-2 md:flex-1">
                     <nav className="flex items-center gap-2">
-                        <SearchCommand />
+                        <SearchTrigger onClick={() => setSearchOpen(true)} />
+                        <SearchDialog open={searchOpen} onOpenChange={setSearchOpen} />
                         <ModeToggle />
                     </nav>
                 </div>

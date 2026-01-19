@@ -79,39 +79,44 @@ export function getPosts(): BlogPost[] {
     })
 }
 
+// Cache for slug to filename mapping
+let slugMapCache: Map<string, string> | null = null
+
+function getSlugMap(): Map<string, string> {
+    if (slugMapCache) return slugMapCache
+
+    slugMapCache = new Map()
+    if (!fs.existsSync(postsDirectory)) return slugMapCache
+
+    const fileNames = fs.readdirSync(postsDirectory)
+    fileNames.forEach(fileName => {
+        if (!fileName.toLowerCase().endsWith('.md')) return
+        const slug = fileName.replace(/\.md$/i, '').normalize('NFC')
+        slugMapCache!.set(slug, fileName)
+    })
+
+    return slugMapCache
+}
+
 export function getPostBySlug(slug: string): BlogPost | null {
     try {
-        const fullPath = path.join(postsDirectory, `${slug}.md`)
-        // Check if file exists to avoid crash
-        if (!fs.existsSync(fullPath)) {
-            // Try decoding the slug in case it was URL encoded
-            const decodedPath = path.join(postsDirectory, `${decodeURIComponent(slug)}.md`)
-            if (!fs.existsSync(decodedPath)) {
+        const decodedSlug = decodeURIComponent(slug).normalize('NFC')
+        const slugMap = getSlugMap()
+
+        // 1. Try direct lookup from cache (O(1))
+        let targetFileName = slugMap.get(decodedSlug)
+        let fullPath: string
+
+        if (targetFileName) {
+            fullPath = path.join(postsDirectory, targetFileName)
+        } else {
+            // Fallback: Check if file exists directly (in case cache is stale or for direct access)
+            // This handles cases where slug might be the filename itself
+            const directPath = path.join(postsDirectory, `${decodedSlug}.md`)
+            if (fs.existsSync(directPath)) {
+                fullPath = directPath
+            } else {
                 return null
-            }
-            const fileContents = fs.readFileSync(decodedPath, 'utf8')
-            const matterResult = matter(fileContents)
-
-            let title = matterResult.data.title
-            let content = matterResult.content
-
-            if (!title) {
-                const titleMatch = content.match(/^#\s+(.+)$/m)
-                if (titleMatch) {
-                    title = titleMatch[1]
-                    content = content.replace(/^#\s+.+$/m, '').trim()
-                } else {
-                    title = decodeURIComponent(slug)
-                }
-            }
-
-            return {
-                slug: decodeURIComponent(slug),
-                title,
-                date: matterResult.data.date || new Date().toISOString().split('T')[0],
-                description: matterResult.data.description || content.slice(0, 150) + '...',
-                topics: matterResult.data.topics || [],
-                content,
             }
         }
 
@@ -127,12 +132,12 @@ export function getPostBySlug(slug: string): BlogPost | null {
                 title = titleMatch[1]
                 content = content.replace(/^#\s+.+$/m, '').trim()
             } else {
-                title = slug
+                title = decodedSlug
             }
         }
 
         return {
-            slug,
+            slug: decodedSlug,
             title,
             date: matterResult.data.date || new Date().toISOString().split('T')[0],
             description: matterResult.data.description || content.slice(0, 150) + '...',
@@ -140,6 +145,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
             content,
         }
     } catch (e) {
+        console.error("Error in getPostBySlug:", e)
         return null
     }
 }

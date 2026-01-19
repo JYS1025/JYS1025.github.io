@@ -40,8 +40,8 @@ export default function AboutPage() {
                                 <h3 className="text-lg font-semibold">Big Data Analytics and Learning (BigDyL) @ KAIST</h3>
                                 <p className="text-sm text-muted-foreground mb-2">Advisor: Prof. Noseong Park</p>
                                 <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
-                                    <li><strong className="text-foreground">Topic:</strong> Sampler Acceleration for Diffusion Language Models using Riemannian Geometry.</li>
-                                    <li><strong className="text-foreground">Details:</strong> Investigated geometric structures of discrete data manifolds to design efficient sampling algorithms for DLMs.</li>
+                                    <li><strong className="text-foreground">Topic:</strong> DLM acceleration.</li>
+                                    <li><strong className="text-foreground">Details:</strong> Conducting research on accelerating Diffusion Language Models.</li>
                                 </ul>
                             </div>
 

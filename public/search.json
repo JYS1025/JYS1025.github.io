@@ -441,11 +441,19 @@
   },
   {
     "type": "Project",
+    "title": "JYS1025",
+    "description": "github public profile",
+    "tags": [],
+    "url": "https://github.com/JYS1025/JYS1025",
+    "date": "2026-01-19T02:24:24Z"
+  },
+  {
+    "type": "Project",
     "title": "JYS1025.github.io",
     "description": "Personal Portfolio Blog",
     "tags": [],
     "url": "https://github.com/JYS1025/JYS1025.github.io",
-    "date": "2026-01-18T07:54:56Z"
+    "date": "2026-01-18T08:03:56Z"
   },
   {
     "type": "Project",
@@ -478,14 +486,6 @@
     "tags": [],
     "url": "https://github.com/JYS1025/news-bias-analyzer",
     "date": "2026-01-17T14:38:43Z"
-  },
-  {
-    "type": "Project",
-    "title": "JYS1025",
-    "description": "github public profile",
-    "tags": [],
-    "url": "https://github.com/JYS1025/JYS1025",
-    "date": "2026-01-17T14:38:09Z"
   },
   {
     "type": "Project",

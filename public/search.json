@@ -441,19 +441,27 @@
   },
   {
     "type": "Project",
+    "title": "JYS1025.github.io",
+    "description": "Personal Portfolio Blog",
+    "tags": [],
+    "url": "https://github.com/JYS1025/JYS1025.github.io",
+    "date": "2026-01-19T07:23:31Z"
+  },
+  {
+    "type": "Project",
+    "title": "PicToPoem",
+    "description": "PicToPoem is an AI-powered web application that analyzes your uploaded images and recommends a fitting passage from a literary work.",
+    "tags": [],
+    "url": "https://github.com/JYS1025/PicToPoem",
+    "date": "2026-01-19T03:46:31Z"
+  },
+  {
+    "type": "Project",
     "title": "JYS1025",
     "description": "github public profile",
     "tags": [],
     "url": "https://github.com/JYS1025/JYS1025",
     "date": "2026-01-19T02:24:24Z"
-  },
-  {
-    "type": "Project",
-    "title": "JYS1025.github.io",
-    "description": "Personal Portfolio Blog",
-    "tags": [],
-    "url": "https://github.com/JYS1025/JYS1025.github.io",
-    "date": "2026-01-18T08:03:56Z"
   },
   {
     "type": "Project",
@@ -473,18 +481,11 @@
   },
   {
     "type": "Project",
-    "title": "PicToPoem",
-    "description": "PicToPoem is an AI-powered web application that analyzes your uploaded images and recommends a fitting passage from a literary work.",
-    "tags": [],
-    "url": "https://github.com/JYS1025/PicToPoem",
-    "date": "2026-01-17T14:40:03Z"
-  },
-  {
-    "type": "Project",
     "title": "news-bias-analyzer",
     "description": "NewsTrust is a web-based application designed to analyze South Korean news articles for political bias and journalistic reliability.",
     "tags": [],
     "url": "https://github.com/JYS1025/news-bias-analyzer",
+    "demo": "https://news-bias-analyzer-p5xpvp7wqjkjxc2cnv8qg2.streamlit.app",
     "date": "2026-01-17T14:38:43Z"
   },
   {

@@ -38,7 +38,9 @@ export async function getGithubRepos(): Promise<Project[]> {
                 description: repo.description || "No description available.",
                 tags: repo.topics && repo.topics.length > 0 ? repo.topics : [repo.language].filter(Boolean),
                 github: repo.html_url,
-                demo: repo.homepage || undefined,
+                demo: repo.name === "news-bias-analyzer"
+                    ? "https://news-bias-analyzer-p5xpvp7wqjkjxc2cnv8qg2.streamlit.app"
+                    : (repo.homepage || undefined),
             }))
     } catch (error) {
         console.error("Error fetching GitHub repos:", error)

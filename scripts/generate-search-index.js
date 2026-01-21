@@ -54,6 +54,9 @@ async function generateSearchIndex() {
                     description: repo.description || '',
                     tags: repo.topics || [repo.language].filter(Boolean),
                     url: repo.html_url, // External link
+                    demo: repo.name === "news-bias-analyzer"
+                        ? "https://news-bias-analyzer-p5xpvp7wqjkjxc2cnv8qg2.streamlit.app"
+                        : (repo.homepage || undefined),
                     date: repo.updated_at
                 }));
 

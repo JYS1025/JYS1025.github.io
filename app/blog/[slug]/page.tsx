@@ -26,7 +26,7 @@ export async function generateStaticParams() {
     const posts = getPosts()
     console.log("Generated Slugs:", posts.map(p => p.slug))
     return posts.map((post) => ({
-        slug: encodeURIComponent(post.slug),
+        slug: post.slug,
     }))
 }
 

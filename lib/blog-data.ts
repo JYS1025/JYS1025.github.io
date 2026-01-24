@@ -32,7 +32,7 @@ export const posts: BlogPost[] = [
         title: "왜 나는 너를 사랑하는가",
         description: "A philosophical exploration of love, idealism, and romantic realism through Alain de Botton's debut novel.",
         date: "January 15, 2024",
-        slug: "왜 나는 너를 사랑하는가 - 알랭 드 보통",
+        slug: "why-i-love-you-alain-de-botton",
         topics: ["Book Review", "Essay"],
     },
 ]

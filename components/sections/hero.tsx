@@ -53,7 +53,7 @@ export function Hero({ align = "center" }: HeroProps) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl"
+                    className="text-2xl font-extrabold tracking-tight sm:text-3xl md:text-4xl lg:text-5xl"
                 >
                     Hi, I'm Yoonseong Jeong
                 </motion.h1>

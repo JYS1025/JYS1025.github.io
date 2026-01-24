@@ -120,6 +120,17 @@
   },
   {
     "type": "Post",
+    "title": "괴테는 모든 것을 말했다 - 스즈키 유이",
+    "description": "2025년 아쿠타가와상 수상작. 괴테 전문가가 티백 속 명언의 진위를 찾아가는 여정을 통해 학계의 권위, 인용의 의미, 그리고 지성의 욕망을 탐구하는 소설. 세련된 필력과 흥미로운 반전, 그러나 아쉬움도 남는 젊은 작가의 야심작.",
+    "tags": [
+      "Book Review",
+      "Novel"
+    ],
+    "url": "/blog/괴테는 모든 것을 말했다 - 스즈키 유이",
+    "date": "2026-01-25"
+  },
+  {
+    "type": "Post",
     "title": "굽은 판자",
     "description": "기댄다는 것은 자신의 중심을 그 밖에 두는 것이다. 굽어진 판자처럼 제 중심이 그 밖에 있는 것들은 홀로 서있지를 못한다.",
     "tags": [
@@ -147,16 +158,6 @@
     ],
     "url": "/blog/뇌 - 베르나르베르베르",
     "date": "2024-12-04"
-  },
-  {
-    "type": "Post",
-    "title": "다크초콜릿",
-    "description": "사랑은 단맛이 아니다. 다크초콜릿에 가깝다. 씁쓸한 내음을 입안에 굴리다 보면 단란한 선율같은 향이 구석 구석에 퍼지는 그런 맛에 가깝다.",
-    "tags": [
-      "Essay"
-    ],
-    "url": "/blog/다크초콜릿",
-    "date": "2025-02-06"
   },
   {
     "type": "Post",
@@ -220,16 +221,6 @@
   },
   {
     "type": "Post",
-    "title": "베인자를 베는자",
-    "description": "과격한 논쟁을 피하고 싶어 한동안 눈을 감고 내면을 가다듬고 있었는데 그 잠든 정신을 깨우려는지 알고리즘이 이 영상으로 날 이끌었다.",
-    "tags": [
-      "Essay"
-    ],
-    "url": "/blog/베인자를 베는자",
-    "date": "2024-01-07"
-  },
-  {
-    "type": "Post",
     "title": "별빛의 하늘",
     "description": "우리는 함부로 태양을 만들어선 안된다. 그 홀로 존속하는 대상에게 우리의 빛을 모두 맡기어서는 안된다.",
     "tags": [
@@ -267,16 +258,6 @@
     ],
     "url": "/blog/사랑의기술 - 에리히 프롬",
     "date": "2025-02-06"
-  },
-  {
-    "type": "Post",
-    "title": "성수동 골목",
-    "description": "성수동 골목. 비가오면 을지로처럼 차가운 기계음을 적시는 그 거리는 이제 내 가슴을 아리게하진 않지만 여전히 향이 짙은 곳이다.",
-    "tags": [
-      "Essay"
-    ],
-    "url": "/blog/성수동 골목",
-    "date": "2024-02-16"
   },
   {
     "type": "Post",
@@ -331,16 +312,6 @@
   },
   {
     "type": "Post",
-    "title": "우리는 왜 살아야하는가",
-    "description": "떠올릴수록 우울한 내용이긴 하나 멈출 수 없는 흐름린 것 처럼 태어나서부터 이어오던 질문이다.",
-    "tags": [
-      "Essay"
-    ],
-    "url": "/blog/우리는 왜 살아야 하는가",
-    "date": "2025-03-31"
-  },
-  {
-    "type": "Post",
     "title": "이방인 - 알베르 카뮈",
     "description": "오늘 엄마가 죽었다. 아니, 어쩌면 어제였는지도 모른다.",
     "tags": [
@@ -348,16 +319,6 @@
     ],
     "url": "/blog/이방인 - 알베르 카뮈",
     "date": "2025-01-01"
-  },
-  {
-    "type": "Post",
-    "title": "자만함",
-    "description": "단단하다는 자만. 세상을 짊어지고 있다는 자만. 모두 버텨낼 수 있을만큼 강하다는 자만.",
-    "tags": [
-      "Essay"
-    ],
-    "url": "/blog/자만함",
-    "date": "2023-07-04"
   },
   {
     "type": "Post",
@@ -378,16 +339,6 @@
     ],
     "url": "/blog/정서적 전체주의",
     "date": "2025-01-31"
-  },
-  {
-    "type": "Post",
-    "title": "제자리로",
-    "description": "오늘 놀라운 것을 발견했다. 내가 사랑한 대상과 단절될 때에 그리고 그것을 회복할 때에 그 대상이 내 내면으로 되었다는 것.",
-    "tags": [
-      "Essay"
-    ],
-    "url": "/blog/제자리로",
-    "date": "2025-01-30"
   },
   {
     "type": "Post",
@@ -445,15 +396,110 @@
     "description": "Personal Portfolio Blog",
     "tags": [],
     "url": "https://github.com/JYS1025/JYS1025.github.io",
-    "date": "2026-01-19T07:23:31Z"
+    "date": "2026-01-24T15:22:54Z"
+  },
+  {
+    "type": "Project",
+    "title": "neural-image-recovery-via-diffusion-",
+    "description": "Solving Non-differentiable Spiking Inverse Problems via Diffusion Posterior Sampling (DPS) and Differentiable Proxy Learning",
+    "tags": [
+      "bci",
+      "brain-computer-interface",
+      "computational-neuroscience",
+      "computer-vision",
+      "diffusion-models",
+      "generative-ai",
+      "inverse-problem",
+      "neural-decoding",
+      "neuromorphic",
+      "python",
+      "pytorch",
+      "snn",
+      "spiking-neural-networks"
+    ],
+    "url": "https://github.com/JYS1025/neural-image-recovery-via-diffusion-",
+    "date": "2026-01-24T13:34:43Z"
+  },
+  {
+    "type": "Project",
+    "title": "python_auto_trading",
+    "description": "automate stock trading using python and Open API",
+    "tags": [
+      "algorithm-trading",
+      "automated-trading",
+      "kis-api",
+      "llm",
+      "nlp",
+      "python",
+      "quantitative-finance",
+      "stock-prediction",
+      "technical-analysis",
+      "trading-bot",
+      "transformer"
+    ],
+    "url": "https://github.com/JYS1025/python_auto_trading",
+    "date": "2026-01-23T03:33:09Z"
+  },
+  {
+    "type": "Project",
+    "title": "gestaltzerfall-llm",
+    "description": "Computational phenomenology study of semantic satiation in neural networks. Comparing how GPT-2, BERT, and Mamba handle extreme repetition reveals causal models drift into hallucination while bidirectional models stay stable—suggesting attention directionality preserves semantic identity.",
+    "tags": [
+      "ai-safety",
+      "bert",
+      "cognitive-modeling",
+      "computational-linguistics",
+      "gestaltzerfall",
+      "gpt-2",
+      "hallucination",
+      "mamba",
+      "mamba-ssm",
+      "mechanistic-interpretability",
+      "semantic-satiation",
+      "state-space-model",
+      "transformer"
+    ],
+    "url": "https://github.com/JYS1025/gestaltzerfall-llm",
+    "date": "2026-01-23T03:30:09Z"
   },
   {
     "type": "Project",
     "title": "PicToPoem",
     "description": "PicToPoem is an AI-powered web application that analyzes your uploaded images and recommends a fitting passage from a literary work.",
-    "tags": [],
+    "tags": [
+      "creative-writing",
+      "generative-ai",
+      "image-captioning",
+      "image-to-text",
+      "llm",
+      "nlp",
+      "poetry-generation",
+      "python",
+      "webapp"
+    ],
     "url": "https://github.com/JYS1025/PicToPoem",
-    "date": "2026-01-19T03:46:31Z"
+    "date": "2026-01-23T03:26:43Z"
+  },
+  {
+    "type": "Project",
+    "title": "news-bias-analyzer",
+    "description": "NewsTrust is a web-based application designed to analyze South Korean news articles for political bias and journalistic reliability.",
+    "tags": [
+      "crawling",
+      "data-science",
+      "fake-news-detection",
+      "llm",
+      "machine-learning",
+      "media-bias",
+      "news-analysis",
+      "news-bias",
+      "nlp",
+      "python",
+      "streamlit"
+    ],
+    "url": "https://github.com/JYS1025/news-bias-analyzer",
+    "demo": "https://news-bias-analyzer-p5xpvp7wqjkjxc2cnv8qg2.streamlit.app",
+    "date": "2026-01-23T03:22:45Z"
   },
   {
     "type": "Project",
@@ -465,35 +511,10 @@
   },
   {
     "type": "Project",
-    "title": "gestaltzerfall-llm",
-    "description": "Computational phenomenology study of semantic satiation in neural networks. Comparing how GPT-2, BERT, and Mamba handle extreme repetition reveals causal models drift into hallucination while bidirectional models stay stable—suggesting attention directionality preserves semantic identity.",
-    "tags": [],
-    "url": "https://github.com/JYS1025/gestaltzerfall-llm",
-    "date": "2026-01-18T07:51:49Z"
-  },
-  {
-    "type": "Project",
     "title": ".ai-vector-generation",
     "description": "AI VectorGen Studio is a desktop application that generates high-quality, editable vector graphics (SVG) from text descriptions (prompts).",
     "tags": [],
     "url": "https://github.com/JYS1025/.ai-vector-generation",
     "date": "2026-01-17T14:40:42Z"
-  },
-  {
-    "type": "Project",
-    "title": "news-bias-analyzer",
-    "description": "NewsTrust is a web-based application designed to analyze South Korean news articles for political bias and journalistic reliability.",
-    "tags": [],
-    "url": "https://github.com/JYS1025/news-bias-analyzer",
-    "demo": "https://news-bias-analyzer-p5xpvp7wqjkjxc2cnv8qg2.streamlit.app",
-    "date": "2026-01-17T14:38:43Z"
-  },
-  {
-    "type": "Project",
-    "title": "python_auto_trading",
-    "description": "automate stock trading using python and Open API",
-    "tags": [],
-    "url": "https://github.com/JYS1025/python_auto_trading",
-    "date": "2025-08-26T13:54:28Z"
   }
 ]

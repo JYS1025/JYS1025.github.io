@@ -25,10 +25,9 @@ interface PageProps {
 export async function generateStaticParams() {
     const posts = getPosts()
     console.log("Generated Slugs:", posts.map(p => p.slug))
-    return posts.flatMap((post) => [
-        { slug: post.slug },
-        { slug: encodeURIComponent(post.slug) }
-    ])
+    return posts.map((post) => ({
+        slug: encodeURIComponent(post.slug),
+    }))
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

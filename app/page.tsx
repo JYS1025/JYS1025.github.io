@@ -4,7 +4,7 @@ import { TopicLinks } from "@/components/sections/topic-links";
 
 export default function Home() {
   return (
-    <div className="container mx-auto pt-4 pb-6 md:pt-8 md:pb-12 lg:pt-8 lg:pb-16">
+    <div className="container mx-auto px-6 pt-4 pb-6 md:pt-8 md:pb-12 lg:pt-8 lg:pb-16">
       <div className="grid gap-16 lg:grid-cols-2 lg:gap-24 items-start">
         {/* Left Column: Intro/Bio */}
         <div className="flex flex-col lg:sticky lg:top-24">

@@ -74,7 +74,7 @@ export function Hero({ align = "center" }: HeroProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0"
+                className="flex flex-col items-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0"
             >
                 <Button asChild variant="secondary" size="lg" className="h-12 px-8 text-base">
                     <Link href="/projects">

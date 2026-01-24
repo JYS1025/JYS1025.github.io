@@ -96,9 +96,9 @@ export function Navbar() {
                 </div>
 
                 {/* Mobile Menu Button */}
-                <div className="flex flex-1 items-center justify-between md:hidden">
+                <div className="flex items-center md:hidden">
                     <Link href="/" className="mr-6 flex items-center space-x-2" onClick={handleScrollToTop}>
-                        <span className="font-bold">Portfolio</span>
+                        <span className="font-bold">JYS1025</span>
                     </Link>
                     <Button
                         variant="ghost"

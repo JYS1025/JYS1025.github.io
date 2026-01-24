@@ -47,7 +47,7 @@ export default async function ProjectsPage() {
                                 </CardHeader>
                                 <CardContent className="flex-1">
                                     <div className="flex flex-wrap gap-2">
-                                        {project.tags.map((tag) => (
+                                        {project.tags.slice(0, 3).map((tag) => (
                                             <span
                                                 key={tag}
                                                 className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80"
@@ -55,6 +55,11 @@ export default async function ProjectsPage() {
                                                 {tag}
                                             </span>
                                         ))}
+                                        {project.tags.length > 3 && (
+                                            <span className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80">
+                                                +{project.tags.length - 3}
+                                            </span>
+                                        )}
                                     </div>
                                 </CardContent>
                                 <CardFooter className="flex gap-2">

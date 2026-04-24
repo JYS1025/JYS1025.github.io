@@ -50,7 +50,7 @@ const publications = [
 
 export default function PublicationsPage() {
     return (
-        <div className="container mx-auto py-12 md:py-24 lg:py-32">
+        <div className="container mx-auto px-6 md:px-8 py-12 md:py-24 lg:py-32">
             <div className="mx-auto max-w-4xl space-y-8">
                 <div className="space-y-2">
                     <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Publications</h1>

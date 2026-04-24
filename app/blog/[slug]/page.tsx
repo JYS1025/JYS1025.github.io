@@ -55,7 +55,7 @@ export default async function PostPage({ params }: PageProps) {
     }
 
     return (
-        <article className="container mx-auto py-12 md:py-24 lg:py-32">
+        <article className="container mx-auto px-6 md:px-8 py-12 md:py-24 lg:py-32">
             <div className="mx-auto max-w-3xl space-y-8">
                 <Link href="/blog">
                     <Button variant="ghost" className="pl-0 hover:bg-transparent hover:text-primary">

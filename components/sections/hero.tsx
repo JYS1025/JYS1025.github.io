@@ -75,16 +75,16 @@ export function Hero({ align = "center" }: HeroProps) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
                 className={cn(
-                    "flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0",
-                    align === "center" ? "items-center" : "items-stretch sm:items-start"
+                    "flex flex-col w-full space-y-4 sm:w-auto sm:flex-row sm:space-x-4 sm:space-y-0",
+                    align === "center" ? "items-center" : "items-start"
                 )}
             >
-                <Button asChild variant="secondary" size="lg" className="h-12 px-8 text-base">
+                <Button asChild variant="secondary" size="lg" className="h-12 w-full sm:w-auto px-8 text-base">
                     <Link href="/projects">
                         View Projects <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="h-12 px-8 text-base backdrop-blur-sm bg-background/50 hover:bg-background/80">
+                <Button asChild variant="outline" size="lg" className="h-12 w-full sm:w-auto px-8 text-base backdrop-blur-sm bg-background/50 hover:bg-background/80">
                     <Link href="/resume.pdf" target="_blank">
                         Download Resume <Download className="ml-2 h-4 w-4" />
                     </Link>

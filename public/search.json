@@ -133,16 +133,6 @@
   },
   {
     "type": "Post",
-    "title": "번지르르",
-    "description": "요 며칠. 정확히 말하면 지난 일주일동안 내 가슴은 여러번 요동쳤다. 냉랭한 차분함과 붕괴된 불안함 사이를 난 몇번을 두근거렸다.",
-    "tags": [
-      "Essay"
-    ],
-    "url": "/blog/glossy",
-    "date": "2024-08-28"
-  },
-  {
-    "type": "Post",
     "title": "괴테는 모든 것을 말했다 - 스즈키 유이",
     "description": "2025년 아쿠타가와상 수상작. 괴테 전문가가 티백 속 명언의 진위를 찾아가는 여정을 통해 학계의 권위, 인용의 의미, 그리고 지성의 욕망을 탐구하는 소설. 세련된 필력과 흥미로운 반전, 그러나 아쉬움도 남는 젊은 작가의 야심작.",
     "tags": [
@@ -351,6 +341,18 @@
   },
   {
     "type": "Post",
+    "title": "피로사회 - 한병철",
+    "description": "성과사회의 폭력은 타자가 아닌 자기 자신에게서 비롯된다 — 한병철의 『피로사회』가 진단하는 긍정성의 역설.",
+    "tags": [
+      "Book Review",
+      "Essay",
+      "Philosophy"
+    ],
+    "url": "/blog/the_Burnout_Society",
+    "date": "2026-04-04"
+  },
+  {
+    "type": "Post",
     "title": "진리와 혐오",
     "description": "혐오는 어디로 부터 오는가. 역설적이게도 혐오는 정의에 대한 신앙심으로 부터 온다.",
     "tags": [
@@ -396,11 +398,47 @@
     "description": "Personal Portfolio Blog",
     "tags": [],
     "url": "https://github.com/JYS1025/JYS1025.github.io",
-    "date": "2026-01-24T15:35:58Z"
+    "date": "2026-04-04T00:34:00Z"
   },
   {
     "type": "Project",
-    "title": "neural-image-recovery-via-diffusion-",
+    "title": "pomodoro",
+    "description": "personal pomodoro for Mac OS, working on menu bar",
+    "tags": [],
+    "url": "https://github.com/JYS1025/pomodoro",
+    "date": "2026-03-15T14:42:07Z"
+  },
+  {
+    "type": "Project",
+    "title": "homebrew-pomodoro",
+    "description": "homebrew-pomodoro",
+    "tags": [],
+    "url": "https://github.com/JYS1025/homebrew-pomodoro",
+    "date": "2026-03-15T14:27:04Z"
+  },
+  {
+    "type": "Project",
+    "title": "meta-fusion-trader",
+    "description": "automate stock trading using python and Open API",
+    "tags": [
+      "algorithm-trading",
+      "automated-trading",
+      "kis-api",
+      "llm",
+      "nlp",
+      "python",
+      "quantitative-finance",
+      "stock-prediction",
+      "technical-analysis",
+      "trading-bot",
+      "transformer"
+    ],
+    "url": "https://github.com/JYS1025/meta-fusion-trader",
+    "date": "2026-01-29T13:32:53Z"
+  },
+  {
+    "type": "Project",
+    "title": "neural-image-recovery-via-diffusion",
     "description": "Solving Non-differentiable Spiking Inverse Problems via Diffusion Posterior Sampling (DPS) and Differentiable Proxy Learning",
     "tags": [
       "bci",
@@ -417,28 +455,8 @@
       "snn",
       "spiking-neural-networks"
     ],
-    "url": "https://github.com/JYS1025/neural-image-recovery-via-diffusion-",
-    "date": "2026-01-24T13:34:43Z"
-  },
-  {
-    "type": "Project",
-    "title": "python_auto_trading",
-    "description": "automate stock trading using python and Open API",
-    "tags": [
-      "algorithm-trading",
-      "automated-trading",
-      "kis-api",
-      "llm",
-      "nlp",
-      "python",
-      "quantitative-finance",
-      "stock-prediction",
-      "technical-analysis",
-      "trading-bot",
-      "transformer"
-    ],
-    "url": "https://github.com/JYS1025/python_auto_trading",
-    "date": "2026-01-23T03:33:09Z"
+    "url": "https://github.com/JYS1025/neural-image-recovery-via-diffusion",
+    "date": "2026-01-25T04:23:10Z"
   },
   {
     "type": "Project",
@@ -508,13 +526,5 @@
     "tags": [],
     "url": "https://github.com/JYS1025/JYS1025",
     "date": "2026-01-19T02:24:24Z"
-  },
-  {
-    "type": "Project",
-    "title": ".ai-vector-generation",
-    "description": "AI VectorGen Studio is a desktop application that generates high-quality, editable vector graphics (SVG) from text descriptions (prompts).",
-    "tags": [],
-    "url": "https://github.com/JYS1025/.ai-vector-generation",
-    "date": "2026-01-17T14:40:42Z"
   }
 ]

@@ -9,6 +9,10 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "JYS Blog",
   description: "A showcase of research and projects.",
+  icons: {
+    icon: "/icon.png?v=2",
+    apple: "/icon.png?v=2",
+  },
 };
 
 import { Navbar } from "@/components/layout/navbar";

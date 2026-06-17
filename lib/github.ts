@@ -32,7 +32,6 @@ export async function getGithubRepos(): Promise<Project[]> {
         console.log("Fetched Repos:", repos.map((r: any) => ({ name: r.name, description: r.description })));
 
         return repos
-            .filter((repo: any) => !repo.fork) // Filter out forks if desired
             .map((repo: any) => ({
                 title: repo.name,
                 description: repo.description || "No description available.",

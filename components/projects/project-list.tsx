@@ -41,8 +41,12 @@ export function ProjectList({ projects }: { projects: Project[] }) {
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-12 lg:gap-16 items-start">
-            {/* Sidebar Categories */}
-            <div className="flex flex-col lg:sticky lg:top-24 space-y-6">
+            {/* Left Sidebar: Categories */}
+            <div className="flex flex-col lg:sticky lg:top-24 space-y-8 hidden lg:flex">
+                <div className="space-y-4">
+                    <h1 className="text-4xl font-bold tracking-tight">Projects</h1>
+                    <p className="text-muted-foreground">Open source contributions and personal projects.</p>
+                </div>
                 <div className="space-y-4">
                     <h2 className="text-lg font-semibold flex items-center">
                         <FolderGit2 className="mr-2 h-4 w-4" /> Categories
@@ -74,6 +78,34 @@ export function ProjectList({ projects }: { projects: Project[] }) {
                             )
                         })}
                     </div>
+                </div>
+            </div>
+
+            {/* Mobile Header (Visible only on small screens) */}
+            <div className="space-y-6 lg:hidden">
+                <div className="space-y-4">
+                    <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Projects</h1>
+                    <p className="text-xl text-muted-foreground">Open source contributions and personal projects.</p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                    {categories.map((category) => {
+                        const count = category === "All" 
+                            ? projects.length 
+                            : projects.filter(p => p.category === category).length;
+                        
+                        const isSelected = selectedCategory === category;
+                        
+                        return (
+                            <button key={category} onClick={() => setSelectedCategory(category)}>
+                                <Badge
+                                    variant={isSelected ? "default" : "secondary"}
+                                    className={`px-3 py-1 text-sm transition-colors ${isSelected ? "shadow-md" : "hover:bg-secondary/60"}`}
+                                >
+                                    {category} ({count})
+                                </Badge>
+                            </button>
+                        )
+                    })}
                 </div>
             </div>
 

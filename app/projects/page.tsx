@@ -1,17 +1,6 @@
 import { Metadata } from "next"
-import Link from "next/link"
-import { Github, Globe } from "lucide-react"
-
-import { Button } from "@/components/ui/button"
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
 import { getGithubRepos } from "@/lib/github"
+import { ProjectList } from "@/components/projects/project-list"
 
 export const metadata: Metadata = {
     title: "Projects | JYS Blog",
@@ -23,8 +12,8 @@ export default async function ProjectsPage() {
 
     return (
         <div className="container mx-auto px-6 md:px-8 py-12 md:py-24 lg:py-32">
-            <div className="mx-auto max-w-5xl space-y-8">
-                <div className="space-y-2">
+            <div className="grid grid-cols-1 gap-12 items-start">
+                <div className="space-y-4">
                     <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Projects</h1>
                     <p className="text-xl text-muted-foreground">
                         Open source contributions and personal projects.
@@ -38,49 +27,7 @@ export default async function ProjectsPage() {
                         </p>
                     </div>
                 ) : (
-                    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                        {projects.map((project, index) => (
-                            <Card key={index} className="flex flex-col">
-                                <CardHeader>
-                                    <CardTitle>{project.title}</CardTitle>
-                                    <CardDescription className="mt-2 line-clamp-3">{project.description}</CardDescription>
-                                </CardHeader>
-                                <CardContent className="flex-1">
-                                    <div className="flex flex-wrap gap-2">
-                                        {project.tags.slice(0, 3).map((tag) => (
-                                            <span
-                                                key={tag}
-                                                className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80"
-                                            >
-                                                {tag}
-                                            </span>
-                                        ))}
-                                        {project.tags.length > 3 && (
-                                            <span className="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80">
-                                                +{project.tags.length - 3}
-                                            </span>
-                                        )}
-                                    </div>
-                                </CardContent>
-                                <CardFooter className="flex gap-2">
-                                    <Button variant="outline" size="sm" className="w-full" asChild>
-                                        <Link href={project.github} target="_blank">
-                                            <Github className="mr-2 h-4 w-4" />
-                                            Code
-                                        </Link>
-                                    </Button>
-                                    {project.demo && (
-                                        <Button variant="outline" size="sm" className="w-full" asChild>
-                                            <Link href={project.demo} target="_blank">
-                                                <Globe className="mr-2 h-4 w-4" />
-                                                Demo
-                                            </Link>
-                                        </Button>
-                                    )}
-                                </CardFooter>
-                            </Card>
-                        ))}
-                    </div>
+                    <ProjectList projects={projects} />
                 )}
             </div>
         </div>

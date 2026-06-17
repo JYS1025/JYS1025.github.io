@@ -63,6 +63,16 @@ export default function AboutPage() {
                         </section>
 
                         <section className="space-y-4">
+                            <h2 className="text-2xl font-bold border-b pb-2">Selected Publications</h2>
+                            <ul className="list-disc pl-5 space-y-3 text-muted-foreground">
+                                <li>
+                                    <strong className="text-foreground">To be updated...</strong>
+                                    <p className="text-sm mt-1">Information about recent publications will be added here soon.</p>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <section className="space-y-4">
                             <h2 className="text-2xl font-bold border-b pb-2">Research Experience</h2>
 
                             <div className="space-y-4">
@@ -83,26 +93,7 @@ export default function AboutPage() {
                                         <li><strong className="text-foreground">Details:</strong> Visualized attention maps to analyze subject's cognitive decoding process. Studied the dynamics of cognitive states under One-shot and Incremental learning conditions.</li>
                                     </ul>
                                 </div>
-
-                                <div className="pt-2">
-                                    <h3 className="text-lg font-semibold mb-2">Pre-University Research Projects</h3>
-                                    <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
-                                        <li>Mathematical modeling of epidemic spread (COVID-19).</li>
-                                        <li>Analysis of viscous coefficients via floating body motion between fluids.</li>
-                                        <li>Acoustic conversion analysis of periodic shockwaves.</li>
-                                        <li>Design of dynamic protection mechanisms for falling objects.</li>
-                                    </ul>
-                                </div>
                             </div>
-                        </section>
-
-                        <section className="space-y-4">
-                            <h2 className="text-2xl font-bold border-b pb-2">Academic Highlights</h2>
-                            <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
-                                <li><strong className="text-foreground">AI & Data</strong>: Deep Learning, Machine Learning, Database Systems.</li>
-                                <li><strong className="text-foreground">Systems & Theory</strong>: Operating Systems, Programming Languages, Probability & Statistics.</li>
-                                <li><strong className="text-foreground">Neuroscience</strong>: Theoretical Neuroscience, Biology of Neurons, Statistics for Brain Science.</li>
-                            </ul>
                         </section>
 
                         <section className="space-y-4">

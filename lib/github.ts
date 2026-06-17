@@ -3,6 +3,7 @@ export interface Project {
     description: string
     tags: string[]
     github: string
+    category: string
     demo?: string
 }
 
@@ -29,18 +30,40 @@ export async function getGithubRepos(): Promise<Project[]> {
         const repos = await response.json()
 
         // Debug logging
-        console.log("Fetched Repos:", repos.map((r: any) => ({ name: r.name, description: r.description })));
+        // console.log("Fetched Repos:", repos.map((r: any) => ({ name: r.name, description: r.description })));
 
         return repos
-            .map((repo: any) => ({
-                title: repo.name,
-                description: repo.description || "No description available.",
-                tags: repo.topics && repo.topics.length > 0 ? repo.topics : [repo.language].filter(Boolean),
-                github: repo.html_url,
-                demo: repo.name === "news-bias-analyzer"
-                    ? "https://news-bias-analyzer-p5xpvp7wqjkjxc2cnv8qg2.streamlit.app"
-                    : (repo.homepage || undefined),
-            }))
+            .map((repo: any) => {
+                let category = "Others";
+                const nameLower = repo.name.toLowerCase();
+                const descLower = (repo.description || "").toLowerCase();
+
+                if (
+                    nameLower.includes("spiking") || nameLower.includes("pic-to-poem") || 
+                    nameLower.includes("svg-agentic") || nameLower.includes("neural") || 
+                    nameLower.includes("gestaltzerfall") || nameLower.includes("bias-analyzer") ||
+                    descLower.includes("llm") || descLower.includes("diffusion") || descLower.includes("ai")
+                ) {
+                    category = "AI & ML";
+                } else if (
+                    nameLower.includes("pomodoro") || nameLower.includes("trader") || 
+                    nameLower.includes("blog") || nameLower.includes("github.io") ||
+                    descLower.includes("app") || descLower.includes("web") || descLower.includes("tool")
+                ) {
+                    category = "Tools & Web";
+                }
+
+                return {
+                    title: repo.name,
+                    description: repo.description || "No description available.",
+                    tags: repo.topics && repo.topics.length > 0 ? repo.topics : [repo.language].filter(Boolean),
+                    github: repo.html_url,
+                    category: category,
+                    demo: repo.name === "news-bias-analyzer"
+                        ? "https://news-bias-analyzer-p5xpvp7wqjkjxc2cnv8qg2.streamlit.app"
+                        : (repo.homepage || undefined),
+                };
+            })
     } catch (error) {
         console.error("Error fetching GitHub repos:", error)
         return []

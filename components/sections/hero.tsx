@@ -4,6 +4,7 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowRight, Download } from "lucide-react"
+import { NeuralNetwork } from "@/components/ui/neural-network"
 
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -66,6 +67,17 @@ export function Hero({ align = "center" }: HeroProps) {
                     </Link>
                 </Button>
             </motion.div>
+
+            {align === "left" && (
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8, delay: 0.6 }}
+                    className="w-full mt-12 flex-1 min-h-[350px] lg:min-h-[450px]"
+                >
+                    <NeuralNetwork />
+                </motion.div>
+            )}
         </section>
     )
 }

@@ -10,10 +10,10 @@ import {
 } from "@/components/ui/card"
 
 const topics = [
-    { name: "Deep Learning and Generative Model", href: "/blog/topic/deep-learning" },
-    { name: "Brain and Cognitive Science", href: "/blog/topic/brain-and-cognitive-science" },
-    { name: "Book Review", href: "/blog/topic/book-review" },
-    { name: "Essay", href: "/blog/topic/essay" },
+    { name: "Deep Learning and Generative Model", href: "/blog?topic=Deep Learning and Generative Model" },
+    { name: "Brain and Cognitive Science", href: "/blog?topic=Brain and Cognitive Science" },
+    { name: "Book Review", href: "/blog?topic=Book Review" },
+    { name: "Essay", href: "/blog?topic=Essay" },
 ]
 
 export function TopicLinks() {

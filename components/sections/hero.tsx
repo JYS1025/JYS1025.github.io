@@ -20,7 +20,7 @@ export function Hero({ align = "center" }: HeroProps) {
                 "container mx-auto flex flex-col justify-center space-y-8",
                 align === "center"
                     ? "py-12 md:py-24 lg:py-32 items-center text-center min-h-[calc(100vh-4rem)]"
-                    : "py-0 items-start text-left"
+                    : "py-0 items-center text-center"
             )}
         >
             {align === "left" && (
@@ -47,10 +47,7 @@ export function Hero({ align = "center" }: HeroProps) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: align === "left" ? 0.4 : 0.2 }}
-                    className={cn(
-                        "max-w-[700px] text-muted-foreground md:text-xl",
-                        align === "center" && "mx-auto"
-                    )}
+                    className="max-w-[700px] text-muted-foreground md:text-xl mx-auto"
                 >
                     <span className="font-bold block mb-2">Senior Undergraduate Student @ KAIST, School of Computing</span>
                     Exploring the mathematical foundations of Generative AI & General Intelligence
@@ -60,10 +57,7 @@ export function Hero({ align = "center" }: HeroProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: align === "left" ? 0.6 : 0.4 }}
-                className={cn(
-                    "flex flex-col w-full space-y-4 sm:w-auto sm:flex-row sm:space-x-4 sm:space-y-0",
-                    align === "center" ? "items-center" : "items-start"
-                )}
+                className="flex flex-col w-full space-y-4 sm:w-auto sm:flex-row sm:space-x-4 sm:space-y-0 items-center justify-center"
             >
                 <Button asChild variant="secondary" size="lg" className="h-12 w-full sm:w-auto px-8 text-base">
                     <Link href="/projects">

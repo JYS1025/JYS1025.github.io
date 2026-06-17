@@ -47,27 +47,27 @@ export function NeuralNetwork() {
         canvas.addEventListener("mousemove", handleMouseMove);
         canvas.addEventListener("mouseleave", handleMouseLeave);
 
-        // Helper function to define the brain mask using overlapping circles
+        // Helper function to define the brain mask using overlapping ellipses
         const isInsideBrain = (x: number, y: number, w: number, h: number) => {
             const minDim = Math.min(w, h);
             
-            const circles = [
-                // Main Cerebrum
-                { cx: w * 0.5, cy: h * 0.45, r: minDim * 0.35 },
-                // Frontal Lobe (Left)
-                { cx: w * 0.5 - minDim * 0.2, cy: h * 0.5, r: minDim * 0.22 },
-                // Occipital Lobe (Right)
-                { cx: w * 0.5 + minDim * 0.2, cy: h * 0.5, r: minDim * 0.22 },
+            const ellipses = [
+                // Main Cerebrum (Large top dome)
+                { cx: w * 0.5, cy: h * 0.42, rx: minDim * 0.36, ry: minDim * 0.28 },
+                // Frontal Lobe (Left bulge)
+                { cx: w * 0.5 - minDim * 0.18, cy: h * 0.52, rx: minDim * 0.18, ry: minDim * 0.14 },
+                // Occipital Lobe (Right bulge)
+                { cx: w * 0.5 + minDim * 0.22, cy: h * 0.52, rx: minDim * 0.16, ry: minDim * 0.14 },
                 // Cerebellum (Bottom Right)
-                { cx: w * 0.5 + minDim * 0.15, cy: h * 0.65, r: minDim * 0.18 },
-                // Brain Stem area (Bottom Center)
-                { cx: w * 0.5, cy: h * 0.65, r: minDim * 0.15 },
+                { cx: w * 0.5 + minDim * 0.15, cy: h * 0.68, rx: minDim * 0.12, ry: minDim * 0.08 },
+                // Brain Stem (Bottom center-left)
+                { cx: w * 0.5 - minDim * 0.02, cy: h * 0.72, rx: minDim * 0.05, ry: minDim * 0.10 },
             ];
 
-            return circles.some(c => {
-                const dx = x - c.cx;
-                const dy = y - c.cy;
-                return Math.sqrt(dx * dx + dy * dy) <= c.r;
+            return ellipses.some(e => {
+                const dx = x - e.cx;
+                const dy = y - e.cy;
+                return (dx * dx) / (e.rx * e.rx) + (dy * dy) / (e.ry * e.ry) <= 1;
             });
         };
 

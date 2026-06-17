@@ -30,7 +30,6 @@ export function NeuralNetwork() {
         let animationFrameId: number;
         let particles: Particle[] = [];
         
-        // Mouse interaction
         let mouseX = -1000;
         let mouseY = -1000;
 
@@ -48,6 +47,30 @@ export function NeuralNetwork() {
         canvas.addEventListener("mousemove", handleMouseMove);
         canvas.addEventListener("mouseleave", handleMouseLeave);
 
+        // Helper function to define the brain mask using overlapping circles
+        const isInsideBrain = (x: number, y: number, w: number, h: number) => {
+            const minDim = Math.min(w, h);
+            
+            const circles = [
+                // Main Cerebrum
+                { cx: w * 0.5, cy: h * 0.45, r: minDim * 0.35 },
+                // Frontal Lobe (Left)
+                { cx: w * 0.5 - minDim * 0.2, cy: h * 0.5, r: minDim * 0.22 },
+                // Occipital Lobe (Right)
+                { cx: w * 0.5 + minDim * 0.2, cy: h * 0.5, r: minDim * 0.22 },
+                // Cerebellum (Bottom Right)
+                { cx: w * 0.5 + minDim * 0.15, cy: h * 0.65, r: minDim * 0.18 },
+                // Brain Stem area (Bottom Center)
+                { cx: w * 0.5, cy: h * 0.65, r: minDim * 0.15 },
+            ];
+
+            return circles.some(c => {
+                const dx = x - c.cx;
+                const dy = y - c.cy;
+                return Math.sqrt(dx * dx + dy * dy) <= c.r;
+            });
+        };
+
         const resizeCanvas = () => {
             const parent = canvas.parentElement;
             if (parent) {
@@ -59,47 +82,56 @@ export function NeuralNetwork() {
 
         const initParticles = () => {
             particles = [];
-            // Adjust particle count based on screen size to prevent lag
+            // Increased density: ~250 nodes for a 1000x1000 area
             const area = canvas.width * canvas.height;
-            const particleCount = Math.min(Math.floor(area / 10000), 100); 
+            const particleCount = Math.min(Math.floor(area / 3000), 250); 
 
-            for (let i = 0; i < particleCount; i++) {
-                particles.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    vx: (Math.random() - 0.5) * 0.5,
-                    vy: (Math.random() - 0.5) * 0.5,
-                    radius: Math.random() * 1.5 + 0.5,
-                });
+            let attempts = 0;
+            while (particles.length < particleCount && attempts < particleCount * 10) {
+                const px = Math.random() * canvas.width;
+                const py = Math.random() * canvas.height;
+                
+                if (isInsideBrain(px, py, canvas.width, canvas.height)) {
+                    particles.push({
+                        x: px,
+                        y: py,
+                        vx: (Math.random() - 0.5) * 0.8,
+                        vy: (Math.random() - 0.5) * 0.8,
+                        radius: Math.random() * 1.5 + 0.5,
+                    });
+                }
+                attempts++;
             }
         };
 
         const draw = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Set colors based on theme
             const isDark = resolvedTheme === "dark";
-            const particleColor = isDark ? "rgba(255, 255, 255, 0.5)" : "rgba(0, 0, 0, 0.5)";
+            const particleColor = isDark ? "rgba(255, 255, 255, 0.7)" : "rgba(0, 0, 0, 0.6)";
             const lineColorRGB = isDark ? "255, 255, 255" : "0, 0, 0";
-            const maxDistance = 120;
-            const mouseDistance = 150;
+            
+            // Reduced distance to match higher density
+            const maxDistance = 70;
+            const mouseDistance = 120;
 
-            // Update and draw particles
             particles.forEach((p, index) => {
                 p.x += p.vx;
                 p.y += p.vy;
 
-                // Bounce off edges
-                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                // Bounce off the brain mask boundary
+                if (!isInsideBrain(p.x, p.y, canvas.width, canvas.height)) {
+                    p.vx *= -1;
+                    p.vy *= -1;
+                    p.x += p.vx;
+                    p.y += p.vy;
+                }
 
-                // Draw particle
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
                 ctx.fillStyle = particleColor;
                 ctx.fill();
 
-                // Draw connections
                 for (let j = index + 1; j < particles.length; j++) {
                     const p2 = particles[j];
                     const dx = p.x - p2.x;
@@ -107,17 +139,16 @@ export function NeuralNetwork() {
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
                     if (distance < maxDistance) {
-                        const opacity = 1 - distance / maxDistance;
+                        const opacity = 1 - Math.pow(distance / maxDistance, 2); // Non-linear opacity for glowing effect
                         ctx.beginPath();
                         ctx.moveTo(p.x, p.y);
                         ctx.lineTo(p2.x, p2.y);
-                        ctx.strokeStyle = `rgba(${lineColorRGB}, ${opacity * 0.2})`;
-                        ctx.lineWidth = 1;
+                        ctx.strokeStyle = `rgba(${lineColorRGB}, ${opacity * 0.3})`;
+                        ctx.lineWidth = 0.8;
                         ctx.stroke();
                     }
                 }
 
-                // Mouse interaction
                 const dxMouse = p.x - mouseX;
                 const dyMouse = p.y - mouseY;
                 const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
@@ -127,7 +158,7 @@ export function NeuralNetwork() {
                     ctx.beginPath();
                     ctx.moveTo(p.x, p.y);
                     ctx.lineTo(mouseX, mouseY);
-                    ctx.strokeStyle = `rgba(${lineColorRGB}, ${opacity * 0.4})`;
+                    ctx.strokeStyle = `rgba(${lineColorRGB}, ${opacity * 0.5})`;
                     ctx.lineWidth = 1;
                     ctx.stroke();
                 }
@@ -148,8 +179,9 @@ export function NeuralNetwork() {
         };
     }, [resolvedTheme, mounted]);
 
+    // Removed borders and background to integrate cleanly with the page
     return (
-        <div className="w-full h-full min-h-[300px] relative overflow-hidden rounded-xl border border-border bg-card/50">
+        <div className="w-full h-full relative overflow-hidden flex items-center justify-center">
             <canvas
                 ref={canvasRef}
                 className="absolute inset-0 w-full h-full"

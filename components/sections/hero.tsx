@@ -23,13 +23,22 @@ export function Hero({ align = "center" }: HeroProps) {
                     : "py-0 items-start text-left"
             )}
         >
-
+            {align === "left" && (
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8 }}
+                    className="w-full mb-8 h-[250px] sm:h-[300px] lg:h-[350px]"
+                >
+                    <NeuralNetwork />
+                </motion.div>
+            )}
 
             <div className="space-y-4">
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.5, delay: align === "left" ? 0.2 : 0 }}
                     className="text-2xl font-extrabold tracking-tight sm:text-3xl md:text-4xl lg:text-5xl"
                 >
                     Hi, I'm Yoonseong Jeong
@@ -37,7 +46,7 @@ export function Hero({ align = "center" }: HeroProps) {
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
+                    transition={{ duration: 0.5, delay: align === "left" ? 0.4 : 0.2 }}
                     className={cn(
                         "max-w-[700px] text-muted-foreground md:text-xl",
                         align === "center" && "mx-auto"
@@ -50,7 +59,7 @@ export function Hero({ align = "center" }: HeroProps) {
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
+                transition={{ duration: 0.5, delay: align === "left" ? 0.6 : 0.4 }}
                 className={cn(
                     "flex flex-col w-full space-y-4 sm:w-auto sm:flex-row sm:space-x-4 sm:space-y-0",
                     align === "center" ? "items-center" : "items-start"
@@ -67,17 +76,6 @@ export function Hero({ align = "center" }: HeroProps) {
                     </Link>
                 </Button>
             </motion.div>
-
-            {align === "left" && (
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, delay: 0.6 }}
-                    className="w-full mt-12 flex-1 min-h-[350px] lg:min-h-[450px]"
-                >
-                    <NeuralNetwork />
-                </motion.div>
-            )}
         </section>
     )
 }

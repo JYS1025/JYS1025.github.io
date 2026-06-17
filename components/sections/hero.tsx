@@ -1,6 +1,6 @@
 "use client"
 
-import Image from "next/image"
+
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowRight, Download } from "lucide-react"
@@ -22,31 +22,7 @@ export function Hero({ align = "center" }: HeroProps) {
                     : "py-0 items-start text-left"
             )}
         >
-            {align === "left" && (
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5 }}
-                    className="relative mb-8 w-full max-w-md mx-auto"
-                >
-                    <Image
-                        src="/hero-image.png"
-                        alt="Hero Image"
-                        width={500}
-                        height={500}
-                        className="h-auto w-full grayscale hide-on-dark"
-                        priority
-                    />
-                    <Image
-                        src="/hero-image-dark.png"
-                        alt="Hero Image (Dark Mode)"
-                        width={500}
-                        height={500}
-                        className="h-auto w-full grayscale show-on-dark"
-                        priority
-                    />
-                </motion.div>
-            )}
+
 
             <div className="space-y-4">
                 <motion.h1

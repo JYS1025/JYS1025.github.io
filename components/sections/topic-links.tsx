@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card"
 
 const topics = [
-    { name: "Deep Learning and Generative Model", href: "/blog?topic=Deep Learning and Generative Model" },
+    { name: "Deep Learning", href: "/blog?topic=Deep Learning" },
     { name: "Brain and Cognitive Science", href: "/blog?topic=Brain and Cognitive Science" },
     { name: "Book Review", href: "/blog?topic=Book Review" },
     { name: "Essay", href: "/blog?topic=Essay" },

@@ -39,18 +39,19 @@ export async function getGithubRepos(): Promise<Project[]> {
                 const descLower = (repo.description || "").toLowerCase();
 
                 if (
-                    nameLower.includes("spiking") || nameLower.includes("pic-to-poem") || 
-                    nameLower.includes("svg-agentic") || nameLower.includes("neural") || 
-                    nameLower.includes("gestaltzerfall") || nameLower.includes("bias-analyzer") ||
-                    descLower.includes("llm") || descLower.includes("diffusion") || descLower.includes("ai")
-                ) {
-                    category = "AI & ML";
-                } else if (
                     nameLower.includes("pomodoro") || nameLower.includes("trader") || 
                     nameLower.includes("blog") || nameLower.includes("github.io") ||
-                    descLower.includes("app") || descLower.includes("web") || descLower.includes("tool")
+                    nameLower.includes("pic-to-poem") || nameLower.includes("bias-analyzer") ||
+                    descLower.includes("web-based") || descLower.includes("web application") || descLower.includes("website")
                 ) {
                     category = "Tools & Web";
+                } else if (
+                    nameLower.includes("spiking") || nameLower.includes("svg-agentic") || 
+                    nameLower.includes("neural") || nameLower.includes("gestaltzerfall") || 
+                    nameLower.includes("broadcasting") ||
+                    descLower.includes("llm") || descLower.includes("diffusion") || descLower.includes("ai") || descLower.includes("neural")
+                ) {
+                    category = "AI & ML";
                 }
 
                 return {

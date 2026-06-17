@@ -5,6 +5,8 @@ description: "A review of groundbreaking discoveries in neural dynamics across m
 topics: ["Brain and Cognitive Science", "Neuroscience", "Neural Dynamics", "Deep Learning"]
 ---
 
+**[📄 Read the Full Paper (PDF)](https://drive.google.com/file/d/1eUhkdQZZksNB-6W_jml9jm8oynQ3W4EV/preview)**
+
 Everything we call "self"—our memories, emotions, decisions, and the way we perceive the world—emerges entirely from the physical activity of brain tissue. Understanding how this remarkable organ generates mind from matter stands as one of the most profound challenges in science. Yet a fundamental question remains: how can we systematically analyze the principles underlying brain function and bring cognitive processes into a rigorous mathematical framework?
 
 Traditionally, neuroscientists have analyzed brain states based on signal properties such as power, amplitude, and frequency of neural oscillations. While these approaches have yielded meaningful insights, they rely on relatively low-dimensional measurements that compress neural complexity, losing much information inherent in intricate neural interactions.

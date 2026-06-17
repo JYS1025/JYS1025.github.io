@@ -5,6 +5,8 @@ description: "An essay questioning the completeness and necessity of Kant's twel
 topics: ["Philosophy", "Kant", "Essay"]
 ---
 
+**[📄 Read the Full Paper (PDF)](https://drive.google.com/file/d/1BqcE-jCVic--RO_j9tSNtEv6uzjtUZmB/preview)**
+
 > Die Kantische Philosophie ist die Basis und der Ausgangspunkt der neueren deutschen Philosophie. Von ihr datiert sich die deutsche Philosophie.
 >
 > — Hegel, G. W. F. *Lectures on the History of Philosophy* (Hegel, 1995)

@@ -2,7 +2,7 @@
 title: "The Myth of Completeness: Twelve Categories, Redundancy, and the Procedural Gap in Active Synthesis"
 date: "2026-01-07"
 description: "An essay questioning the completeness and necessity of Kant's twelve categories, exploring redundancies and the procedural gap in active synthesis."
-topics: ["Philosophy", "Kant", "Essay"]
+topics: ["Essay", "Philosophy"]
 ---
 
 **[📄 Read the Full Paper (PDF)](https://drive.google.com/file/d/1BqcE-jCVic--RO_j9tSNtEv6uzjtUZmB/preview)**

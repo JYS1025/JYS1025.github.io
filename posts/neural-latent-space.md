@@ -2,7 +2,7 @@
 title: "A Dynamic Analysis of the Neural Latent Space"
 date: "2025-12-16"
 description: "A review of groundbreaking discoveries in neural dynamics across motor control, sensory processing, and cognitive processes, along with an overview of analytical methods."
-topics: ["Brain and Cognitive Science", "Neuroscience", "Neural Dynamics", "Deep Learning"]
+topics: ["Neuroscience", "Artificial Intelligence"]
 ---
 
 **[📄 Read the Full Paper (PDF)](https://drive.google.com/file/d/1eUhkdQZZksNB-6W_jml9jm8oynQ3W4EV/preview)**

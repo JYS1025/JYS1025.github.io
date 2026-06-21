@@ -2,7 +2,7 @@
 title: "Structural Broadcasting Q-learning: Annealed Kernel Generalization for Tabular Reinforcement Learning"
 date: "2026-06-21"
 description: "We propose Structural Broadcasting Q-learning, a tabular reinforcement learning method that improves sample efficiency by propagating temporal-difference errors across structurally similar states."
-topics: ["Reinforcement Learning", "Q-learning", "Machine Learning", "Tabular RL"]
+topics: ["Artificial Intelligence", "Reinforcement Learning"]
 ---
 
 **[📄 Read the Full Paper (PDF)](https://drive.google.com/file/d/115syK7iBL1K-FxDcqv8YOLjIsH2Houkn/preview)**

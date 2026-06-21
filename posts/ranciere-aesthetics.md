@@ -2,7 +2,7 @@
 title: "랑시에르의 미학"
 date: "2025-04-10"
 description: "랑시에르는 19세기 프랑스 시인, 작가로 그의 미학은 현대에도 인용되고 있다."
-topics: ["Essay"]
+topics: ["Essay", "Philosophy"]
 ---
 
 # 랑시에르의 미학

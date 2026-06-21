@@ -73,3 +73,17 @@ If a user explicitly states a post/paper is "대외비" (confidential):
 
 ## 7. Clean-Up
 - After migrating content from an external folder or source directory within the repository, confirm with the user and delete the original source directory and its raw files to keep the workspace clean.
+
+## 8. Tagging (Topics) Guidelines
+To prevent tag fragmentation and ensure clean categorization, you MUST ONLY use a combination of the following 7 Core Tags in the `topics` array. Do NOT create custom, single-use tags.
+
+**Core Tags:**
+- `"Essay"`: For general essays, thoughts, and reflections.
+- `"Book Review"`: For literature reviews and book summaries.
+- `"Philosophy"`: For philosophical discourses, aesthetics, and ethics.
+- `"Artificial Intelligence"`: For AI, Deep Learning, Machine Learning, and related fields.
+- `"Reinforcement Learning"`: For RL, Q-learning, and decision-making algorithms.
+- `"Neuroscience"`: For Brain and Cognitive Science, Bio-hybrid computing, Neural Dynamics.
+- `"Computer Science"`: For programming languages, algorithms, and software engineering.
+
+*Example*: If a post is about Q-learning, use `["Artificial Intelligence", "Reinforcement Learning"]`. Do NOT use `"Q-learning"`.

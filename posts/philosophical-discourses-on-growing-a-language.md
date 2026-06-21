@@ -2,7 +2,7 @@
 title: "Philosophical Discourses on Guy Steele’s “Growing a Language”"
 date: "2026-01-18"
 description: "프로그래밍 언어와 자연어의 유사성, 그리고 Guy Steele의 'Growing a Language' 강연을 통해 본 언어의 확장성과 철학적 담론."
-topics: ["Essay", "Philosophy", "Programming Language"]
+topics: ["Essay", "Philosophy", "Computer Science"]
 ---
 
 ## 프로그래밍 언어와 자연어

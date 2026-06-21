@@ -10,8 +10,11 @@ import {
 } from "@/components/ui/card"
 
 const topics = [
-    { name: "Deep Learning", href: "/blog?topic=Deep Learning" },
-    { name: "Brain and Cognitive Science", href: "/blog?topic=Brain and Cognitive Science" },
+    { name: "Artificial Intelligence", href: "/blog?topic=Artificial Intelligence" },
+    { name: "Reinforcement Learning", href: "/blog?topic=Reinforcement Learning" },
+    { name: "Neuroscience", href: "/blog?topic=Neuroscience" },
+    { name: "Computer Science", href: "/blog?topic=Computer Science" },
+    { name: "Philosophy", href: "/blog?topic=Philosophy" },
     { name: "Book Review", href: "/blog?topic=Book Review" },
     { name: "Essay", href: "/blog?topic=Essay" },
 ]

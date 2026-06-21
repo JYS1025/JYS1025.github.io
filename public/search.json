@@ -398,7 +398,41 @@
     "description": "Personal Portfolio Blog",
     "tags": [],
     "url": "https://github.com/JYS1025/JYS1025.github.io",
-    "date": "2026-04-04T00:34:00Z"
+    "date": "2026-06-17T05:24:17Z"
+  },
+  {
+    "type": "Project",
+    "title": "binary-spiking-auto-encoder",
+    "description": "BSAE compresses high-dimensional (1024-channel) binary spike trains into a compact 32-channel latent representation and reconstructs them while preserving temporal and spatial dynamics.",
+    "tags": [],
+    "url": "https://github.com/JYS1025/binary-spiking-auto-encoder",
+    "date": "2026-06-03T10:37:18Z"
+  },
+  {
+    "type": "Project",
+    "title": "pic-to-poem",
+    "description": "PicToPoem is an AI-powered web application that analyzes your uploaded images and recommends a fitting passage from a literary work.",
+    "tags": [
+      "creative-writing",
+      "generative-ai",
+      "image-captioning",
+      "image-to-text",
+      "llm",
+      "nlp",
+      "poetry-generation",
+      "python",
+      "webapp"
+    ],
+    "url": "https://github.com/JYS1025/pic-to-poem",
+    "date": "2026-05-28T15:02:56Z"
+  },
+  {
+    "type": "Project",
+    "title": "svg-agentic-slm",
+    "description": "An agentic pipeline utilizing Small Language Models (SLMs) to generate, validate, and refine Scalable Vector Graphics (SVG) from natural language descriptions",
+    "tags": [],
+    "url": "https://github.com/JYS1025/svg-agentic-slm",
+    "date": "2026-05-28T15:01:15Z"
   },
   {
     "type": "Project",
@@ -479,24 +513,6 @@
     ],
     "url": "https://github.com/JYS1025/gestaltzerfall-llm",
     "date": "2026-01-23T03:30:09Z"
-  },
-  {
-    "type": "Project",
-    "title": "PicToPoem",
-    "description": "PicToPoem is an AI-powered web application that analyzes your uploaded images and recommends a fitting passage from a literary work.",
-    "tags": [
-      "creative-writing",
-      "generative-ai",
-      "image-captioning",
-      "image-to-text",
-      "llm",
-      "nlp",
-      "poetry-generation",
-      "python",
-      "webapp"
-    ],
-    "url": "https://github.com/JYS1025/PicToPoem",
-    "date": "2026-01-23T03:26:43Z"
   },
   {
     "type": "Project",

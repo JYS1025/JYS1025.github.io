@@ -7,11 +7,6 @@ topics: ["Reinforcement Learning", "Q-learning", "Machine Learning", "Tabular RL
 
 **[📄 Read the Full Paper (PDF)](https://drive.google.com/file/d/115syK7iBL1K-FxDcqv8YOLjIsH2Houkn/preview)**
 
-**Yoonseong Jeong, Seungjun Kim, Jinwoong Park**
-
-School of Computing, KAIST  
-jys1025@kaist.ac.kr, ksj626@kaist.ac.kr, jinwoong0925@kaist.ac.kr
-
 ## Abstract
 
 We propose Structural Broadcasting Q-learning, a tabular reinforcement learning method that improves sample efficiency by propagating temporal-difference errors across structurally similar states. Standard Q-learning updates only the visited state-action pairs, which is inefficient in large factored state spaces. Our method maintains a global Q-table and an auxiliary kernel estimator that broadcasts TD errors to nearby states according to a similarity kernel. The auxiliary contribution is annealed by visitation count, allowing early generalization while recovering standard Q-learning in the limit. Experiments on structured discrete benchmarks show that Structural Broadcasting Q-learning improves early learning speed in several sparse and combinatorial environments while preserving a simple tabular update structure.

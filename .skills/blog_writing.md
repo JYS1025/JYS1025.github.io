@@ -32,14 +32,8 @@ When translating or migrating academic papers (e.g., from LaTeX to Markdown):
    ```markdown
    **[📄 Read the Full Paper (PDF)](<link>)**
    ```
-2. **Authors**: Below the link, list the authors in bold:
-   ```markdown
-   **Author 1, Author 2**
-   
-   Affiliation / Contacts
-   ```
-3. **Headings**: Use standard markdown headings (`## Abstract`, `## Introduction`, etc.) instead of an `H1` for the title.
-4. **Math/Equations**:
+2. **Headings**: Use standard markdown headings (`## Abstract`, `## Introduction`, etc.) instead of an `H1` for the title.
+3. **Math/Equations**:
    - Use `$$...$$` for block equations.
    - Use `$...$` for inline equations.
    - Do NOT use standard LaTeX environments like `\begin{equation}` unless properly formatted/supported by the KaTeX plugin.

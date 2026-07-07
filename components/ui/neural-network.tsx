@@ -29,7 +29,7 @@ export function NeuralNetwork() {
 
         let animationFrameId: number;
         let particles: Particle[] = [];
-        
+
         let mouseX = -1000;
         let mouseY = -1000;
 
@@ -38,7 +38,7 @@ export function NeuralNetwork() {
             mouseX = e.clientX - rect.left;
             mouseY = e.clientY - rect.top;
         };
-        
+
         const handleMouseLeave = () => {
             mouseX = -1000;
             mouseY = -1000;
@@ -50,7 +50,7 @@ export function NeuralNetwork() {
         // Helper function to define the brain mask using overlapping ellipses
         const isInsideBrain = (x: number, y: number, w: number, h: number) => {
             const minDim = Math.min(w, h);
-            
+
             const ellipses = [
                 // Main Cerebrum (Large top dome)
                 { cx: w * 0.5, cy: h * 0.42, rx: minDim * 0.36, ry: minDim * 0.28 },
@@ -84,13 +84,13 @@ export function NeuralNetwork() {
             particles = [];
             // Increased density: ~250 nodes for a 1000x1000 area
             const area = canvas.width * canvas.height;
-            const particleCount = Math.min(Math.floor(area / 3000), 250); 
+            const particleCount = Math.min(Math.floor(area / 3000), 250);
 
             let attempts = 0;
             while (particles.length < particleCount && attempts < particleCount * 10) {
                 const px = Math.random() * canvas.width;
                 const py = Math.random() * canvas.height;
-                
+
                 if (isInsideBrain(px, py, canvas.width, canvas.height)) {
                     particles.push({
                         x: px,
@@ -110,9 +110,9 @@ export function NeuralNetwork() {
             const isDark = resolvedTheme === "dark";
             const particleColor = isDark ? "rgba(255, 255, 255, 0.7)" : "rgba(0, 0, 0, 0.6)";
             const lineColorRGB = isDark ? "255, 255, 255" : "0, 0, 0";
-            
+
             // Reduced distance to match higher density
-            const maxDistance = 70;
+            const maxDistance = 140;
             const mouseDistance = 120;
 
             particles.forEach((p, index) => {
@@ -152,7 +152,7 @@ export function NeuralNetwork() {
                 const dxMouse = p.x - mouseX;
                 const dyMouse = p.y - mouseY;
                 const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
-                
+
                 if (distMouse < mouseDistance) {
                     const opacity = 1 - distMouse / mouseDistance;
                     ctx.beginPath();

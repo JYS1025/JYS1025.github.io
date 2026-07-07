@@ -5,6 +5,9 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowRight, Download } from "lucide-react"
 import { NeuralNetwork } from "@/components/ui/neural-network"
+import dynamic from "next/dynamic"
+
+const DualEngineGraphic = dynamic(() => import("@/components/ui/dual-engine-graphic").then((mod) => mod.DualEngineGraphic), { ssr: false })
 
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -28,9 +31,9 @@ export function Hero({ align = "center" }: HeroProps) {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8 }}
-                    className="w-full mb-8 h-[250px] sm:h-[300px] lg:h-[350px]"
+                    className="w-full mb-8 h-[300px] sm:h-[350px] lg:h-[420px]"
                 >
-                    <NeuralNetwork />
+                    <DualEngineGraphic />
                 </motion.div>
             )}
 

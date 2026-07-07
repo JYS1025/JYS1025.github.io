@@ -5,7 +5,7 @@ import { TopicLinks } from "@/components/sections/topic-links";
 export default function Home() {
   return (
     <div className="container mx-auto px-6 pt-4 pb-6 md:pt-8 md:pb-12 lg:pt-8 lg:pb-16">
-      <div className="grid gap-16 lg:grid-cols-2 lg:gap-24 items-start">
+      <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
         {/* Left Column: Intro/Bio */}
         <div className="flex flex-col lg:sticky lg:top-24 lg:h-[calc(100vh-6rem)] lg:justify-center pb-12 lg:pb-0">
           <Hero align="left" />

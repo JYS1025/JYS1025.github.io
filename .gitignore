@@ -43,3 +43,19 @@ next-env.d.ts
 # confidential post
 /posts/overcoming-the-planar-bottleneck.md
 /public/images/posts/overcoming-the-planar-bottleneck/
+
+# hidden posts (cringe list)
+/posts/éphémère.md
+/posts/starlight-sky.md
+/posts/crooked-plank.md
+/posts/snack-like-things.md
+/posts/on-glittering-things.md
+/posts/faded-things.md
+/posts/truth-and-hate.md
+/posts/skepticism-of-love.md
+/posts/love-as-discourse.md
+/posts/bulking-up.md
+/posts/Anhedosia.md
+/posts/on-moderation.md
+/posts/reason-for-studying.md
+/posts/solidarity.md

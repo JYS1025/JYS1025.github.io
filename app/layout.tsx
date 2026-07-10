@@ -1,10 +1,21 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Space_Grotesk, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { cn } from "@/lib/utils";
 
-const inter = Inter({ subsets: ["latin"] });
+const sans = Hanken_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const display = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["500", "600", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "JYS Blog",
@@ -25,7 +36,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn(inter.className, "antialiased min-h-screen bg-background font-sans flex flex-col")}>
+      <body
+        className={cn(
+          sans.variable,
+          display.variable,
+          "antialiased min-h-screen bg-background font-sans flex flex-col"
+        )}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

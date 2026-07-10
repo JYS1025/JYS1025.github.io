@@ -52,17 +52,21 @@ export default function PublicationsPage() {
     return (
         <div className="container mx-auto px-6 md:px-8 py-12 md:py-24 lg:py-32">
             <div className="mx-auto max-w-4xl space-y-8">
-                <div className="space-y-2">
-                    <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Publications</h1>
-                    <p className="text-xl text-muted-foreground">
+				<div className="space-y-2">
+                    <h1 className="text-page-h1">Publications</h1>
+                    <p className="text-page-lead">
                         Selected research papers and conference proceedings.
                     </p>
                 </div>
 
-                <div className="py-12 text-center">
-                    <p className="text-xl text-muted-foreground">
-                        No publications yet.
-                    </p>
+                <div className="rounded-xl border border-dashed border-muted-foreground/30 bg-muted/20 p-10 text-center">
+                    <span className="inline-flex items-center gap-2 text-muted-foreground">
+                        <span className="relative flex h-2.5 w-2.5">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[hsl(var(--accent-strong))] opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[hsl(var(--accent-strong))]"></span>
+                        </span>
+                        <span>No publications yet — coming soon.</span>
+                    </span>
                 </div>
 
                 {/* 

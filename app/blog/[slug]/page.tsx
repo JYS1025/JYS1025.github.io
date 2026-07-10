@@ -13,7 +13,7 @@ import { getPosts, getPostBySlug } from "@/lib/posts"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { ArrowLeft, Quote } from "lucide-react"
+import { ArrowLeft, Quote, Clock } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 interface PageProps {
@@ -24,7 +24,6 @@ interface PageProps {
 
 export async function generateStaticParams() {
     const posts = getPosts()
-    console.log("Generated Slugs:", posts.map(p => p.slug))
     return posts.map((post) => ({
         slug: post.slug,
     }))
@@ -72,22 +71,28 @@ export default async function PostPage({ params }: PageProps) {
                             </Badge>
                         ))}
                     </div>
-                    <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">{post.title}</h1>
-                    <p className="text-xl text-muted-foreground">{post.date}</p>
+                    <h1 className="text-page-h1">{post.title}</h1>
+                    <p className="flex items-center gap-2 text-muted-foreground text-lg">
+                        <span>{post.date}</span>
+                        <span aria-hidden="true" className="text-muted-foreground/50">·</span>
+                        <span className="inline-flex items-center gap-1">
+                            <Clock className="h-4 w-4" /> {post.readingTime} min read
+                        </span>
+                    </p>
                 </div>
 
-                <div className="prose prose-zinc dark:prose-invert max-w-none">
+                <div className="prose prose-zinc dark:prose-invert prose-blog max-w-none">
                     <ReactMarkdown
                         remarkPlugins={[remarkGfm, remarkMath]}
                         rehypePlugins={[rehypeSlug, rehypeKatex, rehypeRaw, rehypeHighlight]}
                         components={{
                             p: ({ node, ...props }) => <p className="mb-8 leading-relaxed" {...props} />,
                             blockquote: ({ node, ...props }) => (
-                                <blockquote className="border-l-4 border-primary pl-4 italic my-8" {...props} />
+                                <blockquote className="not-prose border-l-4 border-[hsl(var(--accent-strong))] pl-4 italic my-8 text-lg leading-relaxed text-muted-foreground" {...props} />
                             ),
-                            h1: ({ node, ...props }) => <h1 className="text-3xl font-bold mt-12 mb-6" {...props} />,
-                            h2: ({ node, ...props }) => <h2 className="text-2xl font-bold mt-10 mb-5" {...props} />,
-                            h3: ({ node, ...props }) => <h3 className="text-xl font-bold mt-8 mb-4" {...props} />,
+                            h1: ({ node, ...props }) => <h1 className="font-display text-3xl font-semibold mt-12 mb-6 tracking-tight" {...props} />,
+                            h2: ({ node, ...props }) => <h2 className="font-display text-2xl font-semibold mt-10 mb-5 tracking-tight" {...props} />,
+                            h3: ({ node, ...props }) => <h3 className="font-display text-xl font-semibold mt-8 mb-4 tracking-tight" {...props} />,
                             ul: ({ node, ...props }) => <ul className="list-disc list-outside ml-6 mb-4" {...props} />,
                             ol: ({ node, ...props }) => <ol className="list-decimal list-outside ml-6 mb-4" {...props} />,
                             li: ({ node, ...props }) => <li className="mb-2" {...props} />,
@@ -95,7 +100,7 @@ export default async function PostPage({ params }: PageProps) {
                                 const match = /language-(\w+)/.exec(className || "")
                                 const isInline = !match
                                 return isInline ? (
-                                    <code className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono text-primary" {...props}>
+                                    <code className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono text-[hsl(var(--accent-strong))]" {...props}>
                                         {children}
                                     </code>
                                 ) : (
@@ -106,9 +111,9 @@ export default async function PostPage({ params }: PageProps) {
                             },
                             // @ts-ignore
                             aside: ({ node, ...props }) => (
-                                <div className="my-8 rounded-lg border bg-card text-card-foreground shadow-sm p-6 flex gap-4 items-start">
-                                    <Quote className="h-6 w-6 text-primary shrink-0 mt-1" />
-                                    <div className="prose dark:prose-invert max-w-none flex-1">
+                                <div className="not-prose rounded-lg border-l-4 border-[hsl(var(--accent-strong))] bg-muted/40 text-card-foreground shadow-sm p-6 flex gap-4 items-start">
+                                    <Quote className="h-6 w-6 text-[hsl(var(--accent-strong))] shrink-0 mt-1" />
+                                    <div className="prose dark:prose-invert prose-blog max-w-none flex-1">
                                         {props.children}
                                     </div>
                                 </div>

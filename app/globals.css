@@ -25,6 +25,10 @@
   --color-accent: hsl(var(--accent));
   --color-accent-foreground: hsl(var(--accent-foreground));
 
+  /* Strong accent — single highlight color for interactive affordances */
+  --color-accent-strong: hsl(var(--accent-strong));
+  --color-accent-strong-foreground: hsl(var(--accent-strong-foreground));
+
   --color-destructive: hsl(var(--destructive));
   --color-destructive-foreground: hsl(var(--destructive-foreground));
 
@@ -35,11 +39,15 @@
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
+
+  /* Expose next/font CSS variables to Tailwind theme */
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
 }
 
 @layer base {
   :root {
-    /* Zinc Palette for Light Mode */
+    /* Zinc base for Light Mode */
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
 
@@ -58,28 +66,32 @@
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
 
-    --accent: 240 4.8% 95.9%;
+    --accent: 240 6% 90%;
     --accent-foreground: 240 5.9% 10%;
+
+    /* Single intellectual blue-teal accent */
+    --accent-strong: 199 89% 48%;
+    --accent-strong-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
+    --ring: 199 89% 48%;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    /* Zinc Palette for Dark Mode - Strict Grayscale */
+    /* Zinc base for Dark Mode */
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
 
-    --card: 0 0% 3.9%;
+    --card: 0 0% 4.5%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 3.9%;
+    --popover: 0 0% 4.5%;
     --popover-foreground: 0 0% 98%;
 
     --primary: 0 0% 98%;
@@ -91,15 +103,19 @@
     --muted: 0 0% 14.9%;
     --muted-foreground: 0 0% 63.9%;
 
-    --accent: 0 0% 14.9%;
+    --accent: 0 0% 18%;
     --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 62.8% 30.6%;
+    /* Single accent — remains vivid against deep background */
+    --accent-strong: 199 95% 62%;
+    --accent-strong-foreground: 0 0% 4%;
+
+    --destructive: 0 70.2% 55%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
+    --ring: 199 95% 62%;
   }
 }
 
@@ -127,5 +143,36 @@
 
   .dark .show-on-dark {
     display: block;
+  }
+}
+
+/* Subtle accent ring for keyboard focus on interactive elements */
+@layer utilities {
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--ring))] focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  /* Section heading scale tokens — keeps pages visually consistent.
+     Headings use the display neo-grotesk face for a clean, minimal
+     tech-blog sensibility while body stays in a humanist grotesk. */
+  .text-page-h1 {
+    @apply font-display text-4xl sm:text-5xl font-semibold tracking-tight;
+  }
+  .text-page-lead {
+    @apply text-xl text-muted-foreground;
+  }
+  .text-section-h2 {
+    @apply font-display text-3xl font-semibold tracking-tight;
+  }
+  .text-subsection-h2 {
+    @apply font-display text-2xl font-semibold tracking-tight;
+  }
+  .text-section-h3 {
+    @apply font-display text-lg font-semibold tracking-tight;
+  }
+
+  /* Long-form prose — comfortable line-height for mixed CJK/latin */
+  .prose-blog {
+    line-height: 1.75;
   }
 }

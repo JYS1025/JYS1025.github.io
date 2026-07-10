@@ -79,19 +79,31 @@ export function Navbar() {
                         </span>
                     </Link>
                     <nav className="flex items-center gap-6 text-sm">
-                        {navItems.map((item) => (
-                            <Link
-                                key={item.href}
-                                href={item.href}
-                                className={cn(
-                                    "transition-colors hover:text-foreground/80",
-                                    pathname === item.href ? "text-foreground" : "text-foreground/60"
-                                )}
-                                onClick={handleScrollToTop}
-                            >
-                                {item.name}
-                            </Link>
-                        ))}
+                        {navItems.map((item) => {
+                            const isActive = pathname === item.href
+                            return (
+                                <Link
+                                    key={item.href}
+                                    href={item.href}
+                                    aria-current={isActive ? "page" : undefined}
+                                    className={cn(
+                                        "relative transition-colors",
+                                        isActive
+                                            ? "text-foreground"
+                                            : "text-foreground/60 hover:text-foreground/80"
+                                    )}
+                                    onClick={handleScrollToTop}
+                                >
+                                    {item.name}
+                                    {isActive && (
+                                        <span
+                                            aria-hidden="true"
+                                            className="absolute -bottom-1.5 left-0 right-0 mx-auto h-1 w-1 rounded-full bg-[hsl(var(--accent-strong))]"
+                                        />
+                                    )}
+                                </Link>
+                            )
+                        })}
                     </nav>
                 </div>
 
@@ -129,19 +141,29 @@ export function Navbar() {
                         className="border-b bg-background md:hidden"
                     >
                         <div className="container grid gap-4 p-4">
-                            {navItems.map((item) => (
-                                <Link
-                                    key={item.href}
-                                    href={item.href}
-                                    className={cn(
-                                        "text-sm font-medium transition-colors hover:text-primary",
-                                        pathname === item.href ? "text-foreground" : "text-foreground/60"
-                                    )}
-                                    onClick={handleScrollToTop}
-                                >
-                                    {item.name}
-                                </Link>
-                            ))}
+                            {navItems.map((item) => {
+                                const isActive = pathname === item.href
+                                return (
+                                    <Link
+                                        key={item.href}
+                                        href={item.href}
+                                        aria-current={isActive ? "page" : undefined}
+                                        className={cn(
+                                            "flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary",
+                                            isActive ? "text-foreground" : "text-foreground/60"
+                                        )}
+                                        onClick={handleScrollToTop}
+                                    >
+                                        {isActive && (
+                                            <span
+                                                aria-hidden="true"
+                                                className="h-1.5 w-1.5 rounded-full bg-[hsl(var(--accent-strong))]"
+                                            />
+                                        )}
+                                        {item.name}
+                                    </Link>
+                                )
+                            })}
                         </div>
                     </motion.div>
                 )}

@@ -4,10 +4,9 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowRight, Download } from "lucide-react"
-import { NeuralNetwork } from "@/components/ui/neural-network"
 import dynamic from "next/dynamic"
 
-const DualEngineGraphic = dynamic(() => import("@/components/ui/dual-engine-graphic").then((mod) => mod.DualEngineGraphic), { ssr: false })
+const GameOfLife = dynamic(() => import("@/components/ui/game-of-life").then((mod) => mod.GameOfLife), { ssr: false })
 
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -33,7 +32,7 @@ export function Hero({ align = "center" }: HeroProps) {
                     transition={{ duration: 0.8 }}
                     className="w-full mb-8 h-[300px] sm:h-[350px] lg:h-[420px]"
                 >
-                    <DualEngineGraphic />
+                    <GameOfLife />
                 </motion.div>
             )}
 
@@ -42,9 +41,9 @@ export function Hero({ align = "center" }: HeroProps) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: align === "left" ? 0.2 : 0 }}
-                    className="text-2xl font-extrabold tracking-tight sm:text-3xl md:text-4xl lg:text-5xl"
+                    className="font-display text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl lg:text-5xl"
                 >
-                    Hi, I'm Yoonseong Jeong
+                    Hi, I&rsquo;m Yoonseong Jeong
                 </motion.h1>
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}

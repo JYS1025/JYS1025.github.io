@@ -9,19 +9,66 @@ import {
     Card,
     CardContent,
     CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { ListingHeader } from "@/components/layout/listing-header"
 import { Project } from "@/lib/github"
+import { cn } from "@/lib/utils"
+
+function CategoryButton({
+    active,
+    onClick,
+    label,
+    count,
+    full,
+}: {
+    active: boolean
+    onClick: () => void
+    label: string
+    count: number
+    full?: boolean
+}) {
+    return (
+        <button
+            onClick={onClick}
+            aria-pressed={active}
+            className={cn(
+                "text-left transition-transform hover:scale-[1.02] active:scale-95",
+                full ? "w-full" : "w-auto"
+            )}
+        >
+            <Badge
+                variant={active ? "default" : "secondary"}
+                className={cn(
+                    "px-3 py-1.5 text-sm transition-colors",
+                    full && "w-full flex justify-between items-center",
+                    active
+                        ? "bg-[hsl(var(--accent-strong))] text-[hsl(var(--accent-strong-foreground))] shadow-md"
+                        : "hover:bg-secondary/60"
+                )}
+            >
+                <span>{label}</span>
+                <span
+                    className={cn(
+                        "ml-2 text-xs px-1.5 py-0.5 rounded-full",
+                        active
+                            ? "bg-[hsl(var(--accent-strong-foreground))]/20 text-[hsl(var(--accent-strong-foreground))]"
+                            : "bg-muted text-muted-foreground"
+                    )}
+                >
+                    {count}
+                </span>
+            </Badge>
+        </button>
+    )
+}
 
 export function ProjectList({ projects }: { projects: Project[] }) {
     const [selectedCategory, setSelectedCategory] = useState<string>("All")
 
-    // Get unique categories and calculate counts
-    const categoriesSet = new Set(projects.map(p => p.category))
-    // Hardcode preferred order for known categories, then sort the rest
+    const categoriesSet = new Set(projects.map((p) => p.category))
     const preferredOrder = ["AI & ML", "Tools & Web", "Others"]
     const availableCategories = Array.from(categoriesSet)
     const sortedCategories = availableCategories.sort((a, b) => {
@@ -32,78 +79,58 @@ export function ProjectList({ projects }: { projects: Project[] }) {
         if (idxB !== -1) return 1
         return a.localeCompare(b)
     })
-    
+
     const categories = ["All", ...sortedCategories]
 
-    const filteredProjects = selectedCategory === "All" 
-        ? projects 
-        : projects.filter(p => p.category === selectedCategory)
+    const filteredProjects = selectedCategory === "All"
+        ? projects
+        : projects.filter((p) => p.category === selectedCategory)
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-12 lg:gap-16 items-start">
-            {/* Left Sidebar: Categories */}
-            <div className="flex flex-col lg:sticky lg:top-24 space-y-8 hidden lg:flex">
+            {/* Desktop Sidebar */}
+            <aside className="hidden lg:flex lg:flex-col lg:sticky lg:top-24 space-y-8">
+                <ListingHeader title="Projects" description="Open source contributions and personal projects." />
                 <div className="space-y-4">
-                    <h1 className="text-4xl font-bold tracking-tight">Projects</h1>
-                    <p className="text-muted-foreground">Open source contributions and personal projects.</p>
-                </div>
-                <div className="space-y-4">
-                    <h2 className="text-lg font-semibold flex items-center">
+                    <h2 className="text-section-h3 flex items-center">
                         <FolderGit2 className="mr-2 h-4 w-4" /> Categories
                     </h2>
-                    <div className="flex flex-wrap lg:flex-col gap-2 lg:gap-3 items-start">
+                    <div className="flex flex-col gap-3 items-start">
                         {categories.map((category) => {
-                            const count = category === "All" 
-                                ? projects.length 
-                                : projects.filter(p => p.category === category).length;
-                            
-                            const isSelected = selectedCategory === category;
-                            
+                            const count = category === "All"
+                                ? projects.length
+                                : projects.filter((p) => p.category === category).length
                             return (
-                                <button 
-                                    key={category} 
+                                <CategoryButton
+                                    key={category}
+                                    active={selectedCategory === category}
                                     onClick={() => setSelectedCategory(category)}
-                                    className="text-left w-auto lg:w-full transition-transform hover:scale-105 active:scale-95"
-                                >
-                                    <Badge 
-                                        variant={isSelected ? "default" : "secondary"} 
-                                        className={`px-3 py-1.5 text-sm w-full flex justify-between items-center transition-colors ${isSelected ? "shadow-md" : "hover:bg-secondary/60"}`}
-                                    >
-                                        <span>{category}</span>
-                                        <span className={`ml-2 text-xs px-1.5 py-0.5 rounded-full ${isSelected ? 'bg-primary-foreground/20 text-primary-foreground' : 'bg-muted text-muted-foreground'}`}>
-                                            {count}
-                                        </span>
-                                    </Badge>
-                                </button>
+                                    label={category}
+                                    count={count}
+                                    full
+                                />
                             )
                         })}
                     </div>
                 </div>
-            </div>
+            </aside>
 
-            {/* Mobile Header (Visible only on small screens) */}
+            {/* Mobile Header */}
             <div className="space-y-6 lg:hidden">
-                <div className="space-y-4">
-                    <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Projects</h1>
-                    <p className="text-xl text-muted-foreground">Open source contributions and personal projects.</p>
-                </div>
+                <ListingHeader title="Projects" description="Open source contributions and personal projects." />
                 <div className="flex flex-wrap gap-2">
                     {categories.map((category) => {
-                        const count = category === "All" 
-                            ? projects.length 
-                            : projects.filter(p => p.category === category).length;
-                        
-                        const isSelected = selectedCategory === category;
-                        
+                        const count = category === "All"
+                            ? projects.length
+                            : projects.filter((p) => p.category === category).length
                         return (
-                            <button key={category} onClick={() => setSelectedCategory(category)}>
-                                <Badge
-                                    variant={isSelected ? "default" : "secondary"}
-                                    className={`px-3 py-1 text-sm transition-colors ${isSelected ? "shadow-md" : "hover:bg-secondary/60"}`}
-                                >
-                                    {category} ({count})
-                                </Badge>
-                            </button>
+                            <CategoryButton
+                                key={category}
+                                active={selectedCategory === category}
+                                onClick={() => setSelectedCategory(category)}
+                                label={`${category} (${count})`}
+                                count={count}
+                            />
                         )
                     })}
                 </div>
@@ -112,7 +139,10 @@ export function ProjectList({ projects }: { projects: Project[] }) {
             {/* Project Grid */}
             <div className="grid gap-6 sm:grid-cols-2">
                 {filteredProjects.map((project, index) => (
-                    <Card key={index} className="flex flex-col hover:-translate-y-1 hover:shadow-md transition-all duration-300">
+                    <Card
+                        key={index}
+                        className="flex flex-col h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[hsl(var(--accent-strong))]/50"
+                    >
                         <CardHeader>
                             <div className="flex justify-between items-start mb-2">
                                 <Badge variant="outline" className="mb-2">
@@ -139,22 +169,22 @@ export function ProjectList({ projects }: { projects: Project[] }) {
                                 )}
                             </div>
                         </CardContent>
-                        <CardFooter className="flex gap-2">
+                        <div className="flex gap-2 p-6 pt-0">
                             <Button variant="outline" size="sm" className="w-full" asChild>
-                                <Link href={project.github} target="_blank">
+                                <Link href={project.github} target="_blank" rel="noreferrer">
                                     <Github className="mr-2 h-4 w-4" />
                                     Code
                                 </Link>
                             </Button>
                             {project.demo && (
                                 <Button variant="outline" size="sm" className="w-full" asChild>
-                                    <Link href={project.demo} target="_blank">
+                                    <Link href={project.demo} target="_blank" rel="noreferrer">
                                         <Globe className="mr-2 h-4 w-4" />
                                         Demo
                                     </Link>
                                 </Button>
                             )}
-                        </CardFooter>
+                        </div>
                     </Card>
                 ))}
             </div>

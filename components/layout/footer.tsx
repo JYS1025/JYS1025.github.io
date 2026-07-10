@@ -1,6 +1,13 @@
 import { Github, Linkedin, Instagram, Mail } from "lucide-react"
 import Link from "next/link"
 
+const socials = [
+    { href: "mailto:jys1025@kaist.ac.kr", label: "Email", Icon: Mail },
+    { href: "https://github.com/JYS1025", label: "GitHub", Icon: Github },
+    { href: "https://www.instagram.com/0dysse_ys/", label: "Instagram", Icon: Instagram },
+    { href: "https://www.linkedin.com/in/yoonseong-jeong-28943637b/", label: "LinkedIn", Icon: Linkedin },
+]
+
 export function Footer() {
     return (
         <footer className="border-t bg-background">
@@ -9,18 +16,18 @@ export function Footer() {
                     Built by Yoonseong Jeong. Hosted on GitHub Pages.
                 </p>
                 <div className="flex items-center gap-4">
-                    <Link href="mailto:jys1025@kaist.ac.kr" target="_blank" rel="noreferrer">
-                        <Mail className="h-5 w-5 text-muted-foreground hover:text-foreground" />
-                    </Link>
-                    <Link href="https://github.com/JYS1025" target="_blank" rel="noreferrer">
-                        <Github className="h-5 w-5 text-muted-foreground hover:text-foreground" />
-                    </Link>
-                    <Link href="https://www.instagram.com/0dysse_ys/" target="_blank" rel="noreferrer">
-                        <Instagram className="h-5 w-5 text-muted-foreground hover:text-foreground" />
-                    </Link>
-                    <Link href="https://www.linkedin.com/in/yoonseong-jeong-28943637b/" target="_blank" rel="noreferrer">
-                        <Linkedin className="h-5 w-5 text-muted-foreground hover:text-foreground" />
-                    </Link>
+                    {socials.map(({ href, label, Icon }) => (
+                        <Link
+                            key={label}
+                            href={href}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={label}
+                            className="text-muted-foreground transition-colors hover:text-foreground"
+                        >
+                            <Icon className="h-5 w-5" />
+                        </Link>
+                    ))}
                 </div>
             </div>
         </footer >

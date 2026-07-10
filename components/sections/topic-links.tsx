@@ -1,7 +1,6 @@
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
-import { Button } from "@/components/ui/button"
 import {
     Card,
     CardContent,
@@ -20,21 +19,18 @@ export function TopicLinks() {
     return (
         <Card className="border-border bg-background shadow-none">
             <CardHeader>
-                <CardTitle>Topics</CardTitle>
+                <CardTitle className="text-subsection-h2">Topics</CardTitle>
             </CardHeader>
             <CardContent className="grid gap-2">
                 {topics.map((topic) => (
-                    <Button
+                    <Link
                         key={topic.name}
-                        variant="outline"
-                        className="justify-between hover:bg-accent hover:text-accent-foreground"
-                        asChild
+                        href={topic.href}
+                        className="group flex items-center justify-between rounded-md border border-transparent px-4 py-2.5 text-sm font-medium transition-colors hover:border-[hsl(var(--accent-strong))]/40 hover:bg-accent"
                     >
-                        <Link href={topic.href}>
-                            {topic.name}
-                            <ArrowRight className="h-4 w-4" />
-                        </Link>
-                    </Button>
+                        {topic.name}
+                        <ArrowRight className="h-4 w-4 text-muted-foreground transition-all group-hover:translate-x-0.5 group-hover:text-[hsl(var(--accent-strong))]" />
+                    </Link>
                 ))}
             </CardContent>
         </Card>

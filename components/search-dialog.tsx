@@ -58,6 +58,15 @@ export default function SearchDialog({ open, onOpenChange }: SearchDialogProps) 
         return fuse.search(query).map(result => result.item).slice(0, 10)
     }, [query, fuse])
 
+    // When no query is typed, surface a few recent posts / projects
+    // so the palette is immediately useful on open.
+    const suggestions = React.useMemo<SearchResult[]>(() => {
+        if (query) return []
+        const posts = results.filter(r => r.type === 'Post').slice(0, 4)
+        const projects = results.filter(r => r.type === 'Project').slice(0, 2)
+        return [...posts, ...projects]
+    }, [query, results])
+
     const [pendingAction, setPendingAction] = React.useState<(() => void) | null>(null)
 
     React.useEffect(() => {
@@ -90,6 +99,35 @@ export default function SearchDialog({ open, onOpenChange }: SearchDialogProps) 
                     </div>
                     <Command.List className="max-h-[500px] overflow-y-auto overflow-x-hidden">
                         <Command.Empty className="py-6 text-center text-sm">No results found.</Command.Empty>
+
+                        {/* ./ Empty query — show suggestions */}
+                        {!query && suggestions.length > 0 && (
+                            <Command.Group heading="Suggested">
+                                {suggestions.map((item) => (
+                                    <Command.Item
+                                        key={`sug-${item.url}`}
+                                        value={`${item.title} ${item.description} ${item.tags.join(' ')}`}
+                                        onSelect={() => {
+                                            runCommand(() => {
+                                                if (item.type === 'Post') router.push(item.url)
+                                                else window.open(item.url, "_blank")
+                                            })
+                                        }}
+                                        className="relative flex cursor-default select-none items-center rounded-sm px-2 py-2 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:opacity-50"
+                                    >
+                                        {item.type === 'Post' ? (
+                                            <FileText className="mr-2 h-4 w-4 shrink-0" />
+                                        ) : (
+                                            <Github className="mr-2 h-4 w-4 shrink-0" />
+                                        )}
+                                        <div className="flex flex-col">
+                                            <span className="font-medium">{item.title}</span>
+                                            <span className="text-xs text-muted-foreground line-clamp-1">{item.description}</span>
+                                        </div>
+                                    </Command.Item>
+                                ))}
+                            </Command.Group>
+                        )}
 
                         {/* Blog Posts */}
                         {filteredResults.some(item => item.type === 'Post') && (

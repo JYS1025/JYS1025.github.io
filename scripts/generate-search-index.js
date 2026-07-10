@@ -1,10 +1,25 @@
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 const matter = require('gray-matter');
 
 const POSTS_DIR = path.join(process.cwd(), 'posts');
 const OUTPUT_FILE = path.join(process.cwd(), 'public', 'search.json');
 const GITHUB_USERNAME = "JYS1025";
+
+/**
+ * Returns true if a file is ignored by .gitignore (i.e. a confidential post
+ * that should never reach the public search index). Falls back to false
+ * (treat as public) when git is unavailable so local builds still succeed.
+ */
+function isGitIgnored(filePath) {
+    try {
+        execSync(`git check-ignore -q ${JSON.stringify(filePath)}`, { stdio: 'ignore' });
+        return true;
+    } catch {
+        return false;
+    }
+}
 
 async function generateSearchIndex() {
     console.log('Generating search index...');
@@ -15,16 +30,21 @@ async function generateSearchIndex() {
     if (fs.existsSync(POSTS_DIR)) {
         const files = fs.readdirSync(POSTS_DIR).filter(file => file.endsWith('.md') || file.endsWith('.Md'));
 
+        let included = 0;
+        let skipped = 0;
         files.forEach(file => {
             const filePath = path.join(POSTS_DIR, file);
+
+            // Skip posts that .gitignore marks as hidden/confidential so
+            // they never leak into the public search index.
+            if (isGitIgnored(filePath)) {
+                skipped++;
+                return;
+            }
+
             const content = fs.readFileSync(filePath, 'utf8');
             const { data } = matter(content);
 
-            // Generate slug from filename (removing extension)
-            // Note: This must match the slug generation logic in lib/posts.ts
-            // In lib/posts.ts, it seems we use the filename as the slug (decoded).
-            // Let's check if we need to normalize. 
-            // The current system seems to use the filename directly as the slug.
             const slug = file.replace(/\.md$/i, '');
 
             searchData.push({
@@ -35,8 +55,9 @@ async function generateSearchIndex() {
                 url: `/blog/${slug}`,
                 date: data.date
             });
+            included++;
         });
-        console.log(`Processed ${files.length} blog posts.`);
+        console.log(`Processed ${included} blog posts (${skipped} hidden by .gitignore).`);
     }
 
     // 2. Fetch GitHub Projects

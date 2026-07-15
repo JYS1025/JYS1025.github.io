@@ -63,6 +63,15 @@ export default function AboutPage() {
                         </section>
 
                         <section className="space-y-4">
+                            <h2 className="text-subsection-h2 border-b pb-2">Honors & Awards</h2>
+                            <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
+                                <li>
+                                    <strong className="text-foreground">KAIST Dean&apos;s List Honors</strong> (2025 Spring &amp; Fall)
+                                </li>
+                            </ul>
+                        </section>
+
+                        <section className="space-y-4">
                             <h2 className="text-subsection-h2 border-b pb-2">Selected Publications</h2>
                             <div className="rounded-lg border border-dashed border-muted-foreground/30 bg-muted/20 p-6 flex items-center gap-3 text-muted-foreground">
                                 <span className="relative flex h-2.5 w-2.5">
@@ -78,11 +87,20 @@ export default function AboutPage() {
 
                             <div className="space-y-4">
                                 <div>
-                                    <h3 className="text-lg font-semibold">Big Data Analytics and Learning (BigDyL) @ KAIST</h3>
+                                    <h3 className="text-lg font-semibold">Algorithmic Intelligence Lab (ALIN Lab) @ KAIST</h3>
+                                    <p className="text-sm text-muted-foreground mb-2">Advisor: Prof. Jinwoo Shin</p>
+                                    <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
+                                        <li><strong className="text-foreground">Topic:</strong> On policy self-distillation for GUI Agent</li>
+                                        <li><strong className="text-foreground">Details:</strong> TBD</li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h3 className="text-lg font-semibold">Big Data Analytics and Learning Lab (BigDyL Lab) @ KAIST</h3>
                                     <p className="text-sm text-muted-foreground mb-2">Advisor: Prof. Noseong Park</p>
                                     <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
-                                        <li><strong className="text-foreground">Topic:</strong> DLM acceleration.</li>
-                                        <li><strong className="text-foreground">Details:</strong> Conducting research on accelerating Diffusion Language Models.</li>
+                                        <li><strong className="text-foreground">Topic:</strong> Sampler Acceleration for Diffusion Language Models.</li>
+                                        <li><strong className="text-foreground">Details:</strong> Design efficient sampling algorithms for DLMs.</li>
                                     </ul>
                                 </div>
 

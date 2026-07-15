@@ -1,0 +1,61 @@
+\begin{thebibliography}{8}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Amari(2016)]{amari2016information}
+Shun-ichi Amari.
+\newblock \emph{Information Geometry and Its Applications}.
+\newblock Springer, 2016.
+\newblock \doi{10.1007/978-4-431-55978-8}.
+
+\bibitem[Davis et~al.(2024)Davis, Kessler, Petrache, Ceylan, Bronstein, and
+  Bose]{davis2024fisherflow}
+Oscar Davis, Samuel Kessler, Mircea Petrache, Ismail~Ilkan Ceylan, Michael
+  Bronstein, and Avishek~Joey Bose.
+\newblock Fisher flow matching for generative modeling over discrete data.
+\newblock In \emph{Advances in Neural Information Processing Systems}, 2024.
+
+\bibitem[Hairer et~al.(2006)Hairer, Lubich, and Wanner]{hairer2006geometric}
+Ernst Hairer, Christian Lubich, and Gerhard Wanner.
+\newblock \emph{Geometric Numerical Integration: Structure-Preserving
+  Algorithms for Ordinary Differential Equations}.
+\newblock Springer, 2 edition, 2006.
+\newblock \doi{10.1007/3-540-30666-8}.
+
+\bibitem[Jo and Hwang(2025)]{jo2025rdlm}
+Jaehyeong Jo and Sung~Ju Hwang.
+\newblock Continuous diffusion model for language modeling.
+\newblock In \emph{Advances in Neural Information Processing Systems}, 2025.
+
+\bibitem[Lou et~al.(2024)Lou, Meng, and Ermon]{lou2024sedd}
+Aaron Lou, Chenlin Meng, and Stefano Ermon.
+\newblock Discrete diffusion modeling by estimating the ratios of the data
+  distribution.
+\newblock In \emph{Proceedings of the 41st International Conference on Machine
+  Learning}, volume 235 of \emph{Proceedings of Machine Learning Research},
+  2024.
+
+\bibitem[Lu et~al.(2022)Lu, Zhou, Bao, Chen, Li, and Zhu]{lu2022dpmsolver}
+Cheng Lu, Yuhao Zhou, Fan Bao, Jianfei Chen, Chongxuan Li, and Jun Zhu.
+\newblock {DPM-Solver}: A fast {ODE} solver for diffusion probabilistic model
+  sampling in around 10 steps.
+\newblock In \emph{Advances in Neural Information Processing Systems}, 2022.
+
+\bibitem[Sahoo et~al.(2024)Sahoo, Arriola, Schiff, Gokaslan, Marroquin, Chiu,
+  Rush, and Kuleshov]{sahoo2024mdlm}
+Subham~Sekhar Sahoo, Marianne Arriola, Yair Schiff, Aaron Gokaslan, Edgar
+  Marroquin, Justin~T. Chiu, Alexander Rush, and Volodymyr Kuleshov.
+\newblock Simple and effective masked diffusion language models.
+\newblock In \emph{Advances in Neural Information Processing Systems}, 2024.
+
+\bibitem[Shoemake(1985)]{shoemake1985slerp}
+Ken Shoemake.
+\newblock Animating rotation with quaternion curves.
+\newblock \emph{ACM SIGGRAPH Computer Graphics}, 19\penalty0 (3):\penalty0
+  245--254, 1985.
+\newblock \doi{10.1145/325165.325242}.
+
+\end{thebibliography}

@@ -1,0 +1,94 @@
+\documentclass[10pt]{article}
+
+\usepackage[margin=0.92in]{geometry}
+\usepackage{fontspec}
+\usepackage{kotex}
+\setmainhangulfont{UnBatang.ttf}[
+  BoldFont=UnBatangBold.ttf,
+  ItalicFont=UnBatang.ttf,
+  BoldItalicFont=UnBatangBold.ttf
+]
+\usepackage{setspace}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{natbib}
+\usepackage{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+\definecolor{linkblue}{RGB}{38,84,124}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=linkblue,
+  citecolor=linkblue,
+  urlcolor=linkblue,
+  pdftitle={마스킹 이산 확산 언어 모델을 위한 측지 모멘텀 샘플링},
+  pdfauthor={Yoonseong Jeong}
+}
+
+\graphicspath{{figures/}}
+\setlist{nosep,leftmargin=1.5em}
+\captionsetup{font=small,labelfont=bf}
+\setstretch{1.075}
+\setlength{\parskip}{0.18em}
+\renewcommand{\abstractname}{초록}
+\renewcommand{\refname}{참고문헌}
+\renewcommand{\figurename}{그림}
+\renewcommand{\tablename}{표}
+\renewcommand{\proofname}{증명}
+
+\theoremstyle{definition}
+\newtheorem{proposition}{명제}
+\newtheorem{corollary}{따름정리}
+\newtheorem{remark}{비고}
+\newtheorem{assumption}{가정}
+\crefname{proposition}{명제}{명제}
+\crefname{equation}{식}{식}
+\crefname{table}{표}{표}
+\crefname{figure}{그림}{그림}
+\floatname{algorithm}{알고리즘}
+\algrenewcommand\algorithmicrequire{\textbf{입력:}}
+\algrenewcommand\algorithmicfor{\textbf{각각에 대해}}
+\algrenewcommand\algorithmicdo{\textbf{반복}}
+\algrenewcommand\algorithmicif{\textbf{만약}}
+\algrenewcommand\algorithmicthen{\textbf{이면}}
+\algrenewcommand\algorithmicelse{\textbf{아니면}}
+
+\newcommand{\simplex}{\Delta^{V-1}}
+\newcommand{\sphere}{\mathbb{S}^{V-1}}
+\newcommand{\sphereplus}{\mathbb{S}^{V-1}_{+}}
+\newcommand{\FR}{\mathrm{FR}}
+\newcommand{\Exp}{\operatorname{Exp}}
+\newcommand{\Log}{\operatorname{Log}}
+\newcommand{\Slerp}{\operatorname{Slerp}}
+\newcommand{\Projplus}{\operatorname{Proj}_{+}}
+\newcommand{\Cat}{\operatorname{Cat}}
+\newcommand{\mask}{\mathtt{m}}
+\newcommand{\eps}{\varepsilon}
+
+\title{\textbf{마스킹 이산 확산 언어 모델을 위한 측지 모멘텀 샘플링}\\
+\large 추론 시점 Fisher--Rao 외삽법}
+\author{Yoonseong Jeong\\KAIST 전산학부}
+\date{검토용 번역 초안 --- 2026년 7월}
+
+\begin{document}
+\maketitle
+
+\input{ko/00_abstract}
+\input{ko/01_background}
+\input{ko/02_method}
+\input{ko/03_scope}
+\input{ko/04_experiments}
+\input{ko/05_discussion}
+\input{ko/06_limitations_conclusion}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}

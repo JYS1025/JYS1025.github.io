@@ -1,0 +1,89 @@
+\section{배경}
+
+\subsection{범주형 Fisher--Rao 기하}
+
+범주형 확률 단체를 다음과 같이 두자.
+\begin{equation}
+  \simplex
+  = \left\{p\in\mathbb{R}^{V}: p_k\ge 0,\ \sum_{k=1}^{V}p_k=1\right\}.
+\end{equation}
+단체의 내부에서 접벡터는 $\sum_k v_k=0$을 만족하며, Fisher--Rao 계량은
+\begin{equation}
+  g_p(v,w)=\sum_{k=1}^{V}\frac{v_kw_k}{p_k}
+  \label{eq:fisher_metric}
+\end{equation}
+이다.
+
+\begin{proposition}[제곱근 등거리사상]
+$\Psi:\operatorname{int}(\simplex)\rightarrow\sphereplus(2)$를 원소별 연산
+$\Psi(p)=2\sqrt{p}$로 정의하자. 여기서 $\sphereplus(2)$는 반지름이 2인 구면의 양의
+직교영역이다. 그러면 $\Psi$는 Fisher--Rao 계량과 주변 유클리드 공간이 유도하는 계량 사이의
+등거리사상이다.
+\end{proposition}
+
+\begin{proof}
+$\psi_k=2\sqrt{p_k}$이면 $d\psi_k=dp_k/\sqrt{p_k}$이므로
+\begin{equation}
+  \lVert d\psi\rVert_2^2
+  =\sum_k\frac{dp_k^2}{p_k}
+  =ds_{\FR}^2.
+\end{equation}
+또한 $\lVert\psi\rVert_2^2=4\sum_k p_k=4$이므로 $\psi$는 반지름 2인 구면 위에 놓인다.
+\end{proof}
+
+구현에서는 단위구면 좌표
+\begin{equation}
+  u(p)=\sqrt{p}\in\sphereplus
+  \label{eq:sqrt_map}
+\end{equation}
+를 사용한다. 이는 상수 2배만큼만 차이가 난다.
+$p,q\in\operatorname{int}(\simplex)$에 대해 두 점 사이의 구면각은
+\begin{equation}
+  \omega(p,q)
+  =\arccos\langle u(p),u(q)\rangle
+  =\arccos\left(\sum_k\sqrt{p_kq_k}\right)
+  \label{eq:bhattacharyya_angle}
+\end{equation}
+이고, 반지름 2 관례에서의 Fisher--Rao 거리는 $d_{\FR}(p,q)=2\omega(p,q)$이다.
+이 거리 공식은 닫힌 단체로 연속적으로 확장되어 그 거리 완비화를 정의하지만, 경계점 자체는
+Fisher--Rao 리만 다양체의 매끄러운 점이 아니다.
+
+\subsection{마스킹 이산 확산과 MDLM}
+
+$\mask$을 흡수 마스크 상태, $\sigma(t)$를 적분 잡음 스케줄이라 하자. 시각 $t$까지 마스크로
+이동했을 확률은
+\begin{equation}
+  m(t)=1-\exp[-\sigma(t)]
+\end{equation}
+이다. 역방향 스텝 $t>s$에서 MDLM은 정답 토큰 분포
+$p_{\theta,t}(\cdot\mid x_t)$를 예측한다. 흡수 상태 매개화에서는
+$p_{\theta,t}(\mask\mid x_t)=0$이고
+$\sum_{k\ne\mask}p_{\theta,t}(k\mid x_t)=1$이다. $x_t=\mask$일 때 기준 구현은 다음 비정규화 가중치에서
+표본을 추출한다.
+\begin{equation}
+  \widetilde q^{\mathrm{MDLM}}_{s\mid t}(k\mid x_t=\mask)=
+  \begin{cases}
+    [m(t)-m(s)]p_{\theta,t}(k\mid x_t), & k\neq\mask,\\
+    m(s), & k=\mask.
+  \end{cases}
+  \label{eq:mdlm_transition}
+\end{equation}
+범주형 샘플링에서는 공통 정규화 상수가 중요하지 않다. $x_t\neq\mask$이면 흡수형 역방향
+샘플러는 이미 마스크가 해제된 토큰을 그대로 복사한다. 캐시 샘플러는 이산 상태가 바뀔 때까지
+$p_{\theta,t}$를 재사용한다 \citep{sahoo2024mdlm}.
+
+\subsection{SEDD의 해석적 전이}
+
+SEDD는 $p_t(y)/p_t(x)$를 근사하는 구체적 스코어 비율을 학습한다 \citep{lou2024sedd}.
+$r_\theta(x_t,t)$를 학습된 스코어 벡터, $\mathcal{S}_{\Delta\sigma}$를 staggered-score 변환,
+$K_{\Delta\sigma}(x_t,\cdot)$를 이동된 순방향 커널이라 하자. 해석적 샘플러는
+\begin{equation}
+  \widetilde q^{\mathrm{SEDD}}_{s\mid t}
+  =\mathcal{S}_{\Delta\sigma}\!\left(r_\theta(x_t,t)\right)
+   \odot K_{\Delta\sigma}(x_t,\cdot),
+  \qquad
+  \Delta\sigma=\sigma(t)-\sigma(s)
+  \label{eq:sedd_transition}
+\end{equation}
+를 사용한 뒤 범주형 샘플링을 수행한다. 본 SEDD 변형은 스코어 벡터 자체가 아니라
+\cref{eq:sedd_transition}을 정규화한 분포에 기하 연산을 적용한다.

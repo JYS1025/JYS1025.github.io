@@ -1,0 +1,172 @@
+\section{측지 모멘텀 샘플링}
+
+\subsection{공통 분포 인터페이스}
+
+각 배치 원소와 시퀀스 위치에 대해 역방향 인덱스 $i$에서의 범주형 분포
+$z_i\in\simplex$를 다음과 같이 정의한다.
+\begin{equation}
+  z_i =
+  \begin{cases}
+    p_{\theta,t_i}(\cdot\mid x_{t_i}), & \text{MDLM},\\
+    \operatorname{Normalize}(\widetilde q^{\mathrm{SEDD}}_{t_{i+1}\mid t_i}), & \text{SEDD}.
+  \end{cases}
+  \label{eq:common_distribution}
+\end{equation}
+원래 구면 좌표는 $u_i=\sqrt{z_i}$이다. $\widehat u_{i-1}$를 직전 단계에서 \textbf{외삽된}
+좌표라 하자. 이 재귀적 선택은 중요하다. 즉, 본 방법은 최근 두 원시 예측만 보존하는 것이 아니라
+지속적인 모멘텀을 갖는다.
+
+\subsection{정확한 구면 연장}
+
+단위벡터 $a,b\in\sphere$와 두 벡터 사이의 각
+$\omega=\arccos\langle a,b\rangle\in(0,\pi)$에 대해 SLERP는 \citep{shoemake1985slerp}
+\begin{equation}
+  \Slerp(a,b;\tau)
+  =\frac{\sin[(1-\tau)\omega]}{\sin\omega}a
+   +\frac{\sin(\tau\omega)}{\sin\omega}b
+  \label{eq:slerp}
+\end{equation}
+이다. 보간에는 $\tau\in[0,1]$을 사용하지만, 본 연구에서는 $\tau=1+\alpha_i$를 선택한다.
+\begin{equation}
+  e_i
+  =\frac{\sin(-\alpha_i\omega_i)}{\sin\omega_i}\widehat u_{i-1}
+   +\frac{\sin[(1+\alpha_i)\omega_i]}{\sin\omega_i}u_i,
+  \quad
+  \omega_i=\arccos\langle\widehat u_{i-1},u_i\rangle.
+  \label{eq:geodesic_extrapolation}
+\end{equation}
+
+\begin{proposition}[지수사상 표현]
+서로 다르고 대척점도 아닌 $a,b\in\sphere$와 $\alpha\ge 0$에 대해
+\begin{equation}
+  \Slerp(a,b;1+\alpha)
+  =\Exp_b\!\left[-\alpha\Log_b(a)\right]
+  \label{eq:exp_equivalence}
+\end{equation}
+가 성립한다. 따라서 \cref{eq:geodesic_extrapolation}은 아래에서 설명할 양수화 연산을 적용하기
+전에 $a$에서 출발해 $b$를 지나는 대원의 호를 추가 비율 $\alpha$만큼 정확히 연장한다.
+\end{proposition}
+
+\begin{proof}
+$\gamma(\tau)=\Slerp(a,b;\tau)$는 $\tau\in[0,1]$에서 $a$와 $b$를 연결하는 유일한 최단 대원
+구간이다. $b=\gamma(1)$에서 $-\Log_b(a)$는 노름이 $\omega$인 순방향 연장 접벡터다.
+크기가 조절된 벡터 $-\alpha\Log_b(a)$에 $\Exp_b$를 적용하면 호의 길이 $\alpha\omega$만큼
+전진하므로, 이는 정확히 $\gamma(1+\alpha)$와 같다.
+\end{proof}
+
+$a=b$, 즉 $\omega=0$일 때는 연속 확장으로 $\Slerp(a,a;\tau)=a$라 정의하며, 이 경우에도
+명제는 성립한다. \cref{eq:slerp,eq:exp_equivalence}은 클램프하지 않은 이상적 연산자를
+기술한다. 구현은 수치 안정성을 위해 각도를 다음과 같이 계산한다.
+\[
+\arccos\!\bigl(\operatorname{clamp}(\langle a,b\rangle,-1+\eps,1-\eps)\bigr).
+\]
+따라서 정확한
+지수사상 항등식은 이상적 연산자에 대한 것이며, 실제 구현은 끝점 부근에서 안정화한 근사다.
+
+\subsection{양의 직교영역 사영과 확률 복원}
+
+대원을 따른 외삽은 양의 직교영역을 벗어날 수 있다. 보존된 구현은
+\begin{equation}
+  \Projplus(e)=\frac{[e]_+}{\lVert[e]_+\rVert_2},
+  \qquad [e]_{+,k}=\max(e_k,0)
+  \label{eq:retraction}
+\end{equation}
+를 사용하고, 다음과 같이 확률을 복원한다.
+\begin{equation}
+  \widehat z_{i,k}=(\widehat u_{i,k})^2,
+  \qquad \widehat u_i=\Projplus(e_i).
+  \label{eq:prob_recovery}
+\end{equation}
+
+\begin{proposition}[확률의 유효성]
+$\lVert[e_i]_+\rVert_2>0$이면 복원된 벡터 $\widehat z_i$는 $\simplex$에 속한다.
+\end{proposition}
+
+\begin{proof}
+각 성분은 제곱이므로 음수가 아니다. 또한 $\widehat u_i$의 노름이 1이므로
+$\sum_k\widehat z_{i,k}=\sum_k\widehat u_{i,k}^2=1$이다.
+\end{proof}
+
+이 사영은 실용적인 영역 보정이며, 정확한 Fisher--Rao 측지선의 일부가 아니다. 성분이 0을
+가로지르는 곳에서 매끄럽지 않고 $[e]_+=0$이면 정의되지 않으므로, 고차 측지 적분기의 보장을
+직접 계승할 수 없다.
+
+\subsection{스텝 계수와 AB2 유사성}
+
+감소하는 역방향 격자를 $t_0>t_1>\cdots>t_N$이라 하고, 양의 스텝 크기를
+$h_i=t_i-t_{i+1}$로 정의하자. 구현에서는
+\begin{equation}
+  \alpha_i=c_i\frac{h_i}{2h_{i-1}},\qquad \alpha_0=0
+  \label{eq:alpha}
+\end{equation}
+을 사용한다. 보존된 SEDD 실행에서는 $c_i=1$이고, MDLM에서는
+\begin{equation}
+  c_i=c\min\left(1,\frac{h_i}{h_{\mathrm{ref}}}\right),
+  \qquad c=1,\quad h_{\mathrm{ref}}=\frac{1}{50}
+  \label{eq:dynamic_damping}
+\end{equation}
+을 사용한다.
+
+\begin{proposition}[국소 선형 형태]
+고정된 $\alpha$와 $\omega=\arccos\langle a,b\rangle\rightarrow0$에 대해
+\begin{equation}
+  \Slerp(a,b;1+\alpha)
+  =(1+\alpha)b-\alpha a+O(\omega^2)
+  \label{eq:local_linear}
+\end{equation}
+가 성립한다. $c_i=1$이고 $r_i=h_i/h_{i-1}$이면 선도 계수는
+$(1+r_i/2,-r_i/2)$이며, 이는 가변 스텝 AB2의 계수와 일치한다.
+\end{proposition}
+
+\begin{proof}
+\cref{eq:slerp}에서 $\tau=1+\alpha$로 두고
+$\sin(\beta\omega)/\sin\omega=\beta+O(\omega^2)$를 사용하면
+$\sin(-\alpha\omega)/\sin\omega=-\alpha+O(\omega^2)$ 및
+$\sin[(1+\alpha)\omega]/\sin\omega=1+\alpha+O(\omega^2)$를 얻는다.
+\end{proof}
+
+\begin{remark}[리만 AB2가 아닌 이유]
+리만 AB2는 $V_{i-1}$을 $T_{X_i}\mathcal{M}$으로 평행이동한 뒤 접공간의 벡터장
+$V_i\in T_{X_i}\mathcal{M}$과 결합하고, 지수사상으로 상태를 갱신한다
+\citep{hairer2006geometric}. 반면 \cref{eq:local_linear}은 \textbf{범주형 예측을 나타내는 점}을
+결합할 뿐이며 접벡터장을 평가하거나 평행이동하지 않는다. 따라서 계수의 일치는 국소적인 유사성일
+뿐, 정확도 차수에 대한 증명이 아니다.
+\end{remark}
+
+\subsection{MDLM 및 SEDD에 대한 구체화}
+
+MDLM에서는 $\widehat z_i$가 \cref{eq:mdlm_transition}의 $p_{\theta,t_i}$를 대체하며, 이미
+마스크가 해제된 토큰은 고정된다. SEDD에서는 $\widehat z_i$가 \cref{eq:sedd_transition}의
+정규화된 해석적 전이를 직접 대체한다. 두 경우 모두 다음 토큰 상태는 Gumbel-max로 추출하므로,
+모든 신경망 입력은 이산 상태로 유지된다.
+
+\begin{algorithm}[t]
+\caption{MDLM 또는 SEDD를 위한 측지 모멘텀 샘플링}
+\label{alg:gms}
+\begin{algorithmic}[1]
+\Require 사전학습 모델, 역방향 격자 $t_0>\cdots>t_N$, 모드 $\in\{\mathrm{MDLM},\mathrm{SEDD}\}$
+\State $x\gets$ 전체 마스크 사전분포; $\widehat u_{-1}\gets\varnothing$
+\For{$i=0,\ldots,N-1$}
+  \If{모드가 MDLM이면}
+    \State $z_i\gets p_{\theta,t_i}(\cdot\mid x)$
+  \Else
+    \State \cref{eq:sedd_transition}으로 $\widetilde q_i$ 구성;
+    $z_i\gets\operatorname{Normalize}(\widetilde q_i)$
+  \EndIf
+  \State $u_i\gets\sqrt{z_i}$; \cref{eq:alpha}로 $\alpha_i$ 계산
+  \If{$i=0$}
+    \State $\widehat u_i\gets u_i$
+  \Else
+    \State $e_i\gets\Slerp(\widehat u_{i-1},u_i;1+\alpha_i)$
+    \State $\widehat u_i\gets\Projplus(e_i)$
+  \EndIf
+  \State $\widehat z_i\gets\widehat u_i^{\odot2}$
+  \If{모드가 MDLM이면}
+    \State $\widehat z_i$를 \cref{eq:mdlm_transition}에 삽입; 마스크 위치를 샘플링하고 나머지는 복사
+  \Else
+    \State $x\sim\Cat(\widehat z_i)$
+  \EndIf
+\EndFor
+\State 기준 방법의 마지막 잡음 제거 단계를 적용하고 $x$ 반환
+\end{algorithmic}
+\end{algorithm}

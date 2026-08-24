@@ -18,8 +18,36 @@ const display = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "JYS Blog",
-  description: "A showcase of research and projects.",
+  metadataBase: new URL("https://jys1025.github.io"),
+  title: {
+    default: "JYS Blog",
+    template: "%s | JYS Blog",
+  },
+  description: "A showcase of research in Generative Models, Neuroscience, and Philosophy by Yoonseong Jeong.",
+  authors: [{ name: "Yoonseong Jeong", url: "https://jys1025.github.io" }],
+  creator: "Yoonseong Jeong",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://jys1025.github.io",
+    siteName: "JYS Blog",
+    title: "JYS Blog - Research & Thoughts",
+    description: "A showcase of research in Generative Models, Neuroscience, and Philosophy by Yoonseong Jeong.",
+    images: [
+      {
+        url: "/icon.png",
+        width: 512,
+        height: 512,
+        alt: "JYS Blog",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "JYS Blog",
+    description: "A showcase of research in Generative Models, Neuroscience, and Philosophy by Yoonseong Jeong.",
+    images: ["/icon.png"],
+  },
   icons: {
     icon: "/icon.png?v=2",
     apple: "/icon.png?v=2",
@@ -36,6 +64,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          as="style"
+          crossOrigin="anonymous"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css"
+        />
+      </head>
       <body
         className={cn(
           sans.variable,

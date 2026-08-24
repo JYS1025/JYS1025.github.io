@@ -179,8 +179,30 @@ export function GameOfLife() {
     let lastStep = performance.now();
     let lastReseed = performance.now();
     let aliveCount = 0;
+    let isVisible = true;
+    const io = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting && !document.hidden;
+      if (isVisible && !raf) {
+        lastStep = performance.now();
+        raf = requestAnimationFrame(draw);
+      }
+    }, { threshold: 0.05 });
+    io.observe(canvas);
+
+    const onVisibilityChange = () => {
+      isVisible = !document.hidden;
+      if (isVisible && !raf) {
+        lastStep = performance.now();
+        raf = requestAnimationFrame(draw);
+      }
+    };
+    document.addEventListener("visibilitychange", onVisibilityChange);
 
     const draw = (now: number) => {
+      if (!isVisible) {
+        raf = 0;
+        return;
+      }
       raf = requestAnimationFrame(draw);
       if (width === 0 || height === 0) return;
 
@@ -252,9 +274,11 @@ export function GameOfLife() {
     raf = requestAnimationFrame(draw);
 
     return () => {
-      cancelAnimationFrame(raf);
+      if (raf) cancelAnimationFrame(raf);
+      io.disconnect();
       ro.disconnect();
       mo.disconnect();
+      document.removeEventListener("visibilitychange", onVisibilityChange);
       canvas.removeEventListener("pointermove", onMove);
       canvas.removeEventListener("pointerleave", onLeave);
     };

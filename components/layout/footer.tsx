@@ -1,4 +1,4 @@
-import { Github, Linkedin, Instagram, Mail } from "lucide-react"
+import { Github, Linkedin, Instagram, Mail, Rss } from "lucide-react"
 import Link from "next/link"
 
 const socials = [
@@ -6,6 +6,7 @@ const socials = [
     { href: "https://github.com/JYS1025", label: "GitHub", Icon: Github },
     { href: "https://www.instagram.com/0dysse_ys/", label: "Instagram", Icon: Instagram },
     { href: "https://www.linkedin.com/in/yoonseong-jeong-28943637b/", label: "LinkedIn", Icon: Linkedin },
+    { href: "/rss.xml", label: "RSS Feed", Icon: Rss },
 ]
 
 export function Footer() {

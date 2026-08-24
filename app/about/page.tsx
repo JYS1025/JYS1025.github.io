@@ -1,8 +1,9 @@
 import { Metadata } from "next"
 import Image from "next/image"
+import { Badge } from "@/components/ui/badge"
 
 export const metadata: Metadata = {
-    title: "About | JYS Blog",
+    title: "About",
     description: "About me and my research interests.",
 }
 
@@ -15,7 +16,7 @@ export default function AboutPage() {
                 <div className="flex flex-col lg:sticky lg:top-24 space-y-6">
                     <div className="relative w-full max-w-sm mx-auto lg:max-w-full lg:mx-0">
                         <Image
-                            src="/hero-image.png"
+                            src="/hero-image.webp"
                             alt="Profile Image"
                             width={500}
                             height={500}
@@ -23,7 +24,7 @@ export default function AboutPage() {
                             priority
                         />
                         <Image
-                            src="/hero-image-dark.png"
+                            src="/hero-image-dark.webp"
                             alt="Profile Image (Dark Mode)"
                             width={500}
                             height={500}
@@ -66,7 +67,7 @@ export default function AboutPage() {
                             <h2 className="text-subsection-h2 border-b pb-2">Honors & Awards</h2>
                             <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
                                 <li>
-                                    <strong className="text-foreground">KAIST Dean&apos;s List Honors</strong> (2025 Spring &amp; Fall)
+                                    <strong className="text-foreground">KAIST Dean&apos;s List Honors</strong> (2025 Spring &amp; Fall, 2026 Spring)
                                 </li>
                             </ul>
                         </section>
@@ -82,35 +83,101 @@ export default function AboutPage() {
                             </div>
                         </section>
 
-                        <section className="space-y-4">
+                        <section className="space-y-6">
                             <h2 className="text-subsection-h2 border-b pb-2">Research Experience</h2>
 
-                            <div className="space-y-4">
-                                <div>
-                                    <h3 className="text-lg font-semibold">Algorithmic Intelligence Lab (ALIN Lab) @ KAIST</h3>
-                                    <p className="text-sm text-muted-foreground mb-2">Advisor: Prof. Jinwoo Shin</p>
-                                    <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
-                                        <li><strong className="text-foreground">Topic:</strong> On policy self-distillation for GUI Agent</li>
-                                        <li><strong className="text-foreground">Details:</strong> TBD</li>
-                                    </ul>
+                            <div className="relative border-l-2 border-border/70 ml-2 md:ml-3 pl-6 md:pl-8 space-y-6">
+                                {/* ALIN Lab */}
+                                <div className="relative group">
+                                    <div className="absolute -left-[31px] md:-left-[39px] top-2 h-3.5 w-3.5 rounded-full border-2 border-background bg-[hsl(var(--accent-strong))] shadow-sm transition-transform group-hover:scale-125" />
+                                    <div className="rounded-xl border border-border/70 bg-card/40 p-5 backdrop-blur-sm transition-all duration-200 hover:border-[hsl(var(--accent-strong))]/50 hover:bg-card/70 hover:shadow-sm space-y-3">
+                                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                            <h3 className="font-display text-lg font-semibold text-foreground tracking-tight group-hover:text-[hsl(var(--accent-strong))] transition-colors">
+                                                Algorithmic Intelligence Lab (ALIN Lab)
+                                            </h3>
+                                            <div className="flex items-center gap-2">
+                                                <span className="text-xs font-medium text-muted-foreground bg-secondary/80 px-2.5 py-0.5 rounded-md">
+                                                    2026.06 – Present
+                                                </span>
+                                                <Badge variant="outline" className="w-fit text-xs font-normal border-[hsl(var(--accent-strong))]/30 text-[hsl(var(--accent-strong))]">
+                                                    KAIST
+                                                </Badge>
+                                            </div>
+                                        </div>
+                                        <p className="text-sm text-muted-foreground">
+                                            Advisor: <span className="text-foreground font-medium">Prof. Jinwoo Shin</span>
+                                        </p>
+                                        <div className="space-y-1.5 text-sm text-muted-foreground border-t border-border/40 pt-3">
+                                            <p>
+                                                <strong className="text-foreground font-medium">Topic:</strong> On policy self-distillation for GUI Agent
+                                            </p>
+                                            <p className="text-muted-foreground/90">
+                                                <strong className="text-foreground font-medium">Details:</strong> Investigating policy distillation and autonomous decision representations for interactive GUI agents.
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div>
-                                    <h3 className="text-lg font-semibold">Big Data Analytics and Learning Lab (BigDyL Lab) @ KAIST</h3>
-                                    <p className="text-sm text-muted-foreground mb-2">Advisor: Prof. Noseong Park</p>
-                                    <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
-                                        <li><strong className="text-foreground">Topic:</strong> Sampler Acceleration for Diffusion Language Models.</li>
-                                        <li><strong className="text-foreground">Details:</strong> Design efficient sampling algorithms for DLMs.</li>
-                                    </ul>
+                                {/* BigDyL Lab */}
+                                <div className="relative group">
+                                    <div className="absolute -left-[31px] md:-left-[39px] top-2 h-3.5 w-3.5 rounded-full border-2 border-background bg-[hsl(var(--accent-strong))] shadow-sm transition-transform group-hover:scale-125" />
+                                    <div className="rounded-xl border border-border/70 bg-card/40 p-5 backdrop-blur-sm transition-all duration-200 hover:border-[hsl(var(--accent-strong))]/50 hover:bg-card/70 hover:shadow-sm space-y-3">
+                                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                            <h3 className="font-display text-lg font-semibold text-foreground tracking-tight group-hover:text-[hsl(var(--accent-strong))] transition-colors">
+                                                Big Data Analytics and Learning Lab (BigDyL Lab)
+                                            </h3>
+                                            <div className="flex items-center gap-2">
+                                                <span className="text-xs font-medium text-muted-foreground bg-secondary/80 px-2.5 py-0.5 rounded-md">
+                                                    2025.08 – 2026.05
+                                                </span>
+                                                <Badge variant="outline" className="w-fit text-xs font-normal border-[hsl(var(--accent-strong))]/30 text-[hsl(var(--accent-strong))]">
+                                                    KAIST
+                                                </Badge>
+                                            </div>
+                                        </div>
+                                        <p className="text-sm text-muted-foreground">
+                                            Advisor: <span className="text-foreground font-medium">Prof. Noseong Park</span>
+                                        </p>
+                                        <div className="space-y-1.5 text-sm text-muted-foreground border-t border-border/40 pt-3">
+                                            <p>
+                                                <strong className="text-foreground font-medium">Topic:</strong> Sampler Acceleration for Diffusion Language Models (DLMs)
+                                            </p>
+                                            <p className="text-muted-foreground/90">
+                                                <strong className="text-foreground font-medium">Details:</strong> Designing high-order geometric and extrapolation sampling algorithms (e.g. Geodesic Momentum Sampling) for discrete diffusion language models.
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div>
-                                    <h3 className="text-lg font-semibold">Brain x Machine Intelligence Lab (BMI Lab) @ KAIST</h3>
-                                    <p className="text-sm text-muted-foreground mb-2">Advisor: Prof. Sang Wan Lee</p>
-                                    <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
-                                        <li><strong className="text-foreground">Topic:</strong> Decoding Cognitive States via Deep Neural Experimenter.</li>
-                                        <li><strong className="text-foreground">Details:</strong> Visualized attention maps to analyze subject&rsquo;s cognitive decoding process. Studied the dynamics of cognitive states under One-shot and Incremental learning conditions.</li>
-                                    </ul>
+                                {/* BMI Lab */}
+                                <div className="relative group">
+                                    <div className="absolute -left-[31px] md:-left-[39px] top-2 h-3.5 w-3.5 rounded-full border-2 border-background bg-[hsl(var(--accent-strong))] shadow-sm transition-transform group-hover:scale-125" />
+                                    <div className="rounded-xl border border-border/70 bg-card/40 p-5 backdrop-blur-sm transition-all duration-200 hover:border-[hsl(var(--accent-strong))]/50 hover:bg-card/70 hover:shadow-sm space-y-3">
+                                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                            <h3 className="font-display text-lg font-semibold text-foreground tracking-tight group-hover:text-[hsl(var(--accent-strong))] transition-colors">
+                                                Brain x Machine Intelligence Lab (BMI Lab)
+                                            </h3>
+                                            <div className="flex items-center gap-2">
+                                                <span className="text-xs font-medium text-muted-foreground bg-secondary/80 px-2.5 py-0.5 rounded-md">
+                                                    2025.06 – 2025.08
+                                                </span>
+                                                <Badge variant="outline" className="w-fit text-xs font-normal border-[hsl(var(--accent-strong))]/30 text-[hsl(var(--accent-strong))]">
+                                                    KAIST
+                                                </Badge>
+                                            </div>
+                                        </div>
+                                        <p className="text-sm text-muted-foreground">
+                                            Advisor: <span className="text-foreground font-medium">Prof. Sang Wan Lee</span>
+                                        </p>
+                                        <div className="space-y-1.5 text-sm text-muted-foreground border-t border-border/40 pt-3">
+                                            <p>
+                                                <strong className="text-foreground font-medium">Topic:</strong> Decoding Cognitive States via Deep Neural Experimenter
+                                            </p>
+                                            <p className="text-muted-foreground/90">
+                                                <strong className="text-foreground font-medium">Details:</strong> Visualized attention maps to analyze subject&rsquo;s cognitive decoding process. Studied the dynamics of cognitive states under One-shot and Incremental learning conditions.
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </section>

@@ -9,12 +9,18 @@ import rehypeRaw from "rehype-raw"
 import rehypeHighlight from "rehype-highlight"
 import "katex/dist/katex.min.css"
 import "highlight.js/styles/github-dark.css"
-import { getPosts, getPostBySlug } from "@/lib/posts"
+
+import { getPosts, getPostBySlug, getPostNavigation } from "@/lib/posts"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ArrowLeft, Quote, Clock } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { ReadingProgressBar } from "@/components/blog/reading-progress-bar"
+import { TableOfContents } from "@/components/blog/table-of-contents"
+import { CodeBlock } from "@/components/blog/code-block"
+import { PostNavigation } from "@/components/blog/post-navigation"
+import { FloatingActions } from "@/components/blog/floating-actions"
+import { GiscusComments } from "@/components/blog/giscus-comments"
 
 interface PageProps {
     params: Promise<{
@@ -39,9 +45,34 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         }
     }
 
+    const postUrl = `https://jys1025.github.io/blog/${encodeURIComponent(post.slug)}`
+
     return {
-        title: `${post.title} | JYS Blog`,
+        title: post.title,
         description: post.description,
+        openGraph: {
+            title: post.title,
+            description: post.description,
+            url: postUrl,
+            type: "article",
+            publishedTime: post.date,
+            authors: ["Yoonseong Jeong"],
+            tags: post.topics,
+            images: [
+                {
+                    url: "/icon.png",
+                    width: 512,
+                    height: 512,
+                    alt: post.title,
+                },
+            ],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: post.title,
+            description: post.description,
+            images: ["/icon.png"],
+        },
     }
 }
 
@@ -53,87 +84,121 @@ export default async function PostPage({ params }: PageProps) {
         notFound()
     }
 
+    const navInfo = getPostNavigation(slug)
+
     return (
-        <article className="container mx-auto px-6 md:px-8 py-12 md:py-24 lg:py-32">
-            <div className="mx-auto max-w-3xl space-y-8">
-                <Link href="/blog">
-                    <Button variant="ghost" className="pl-0 hover:bg-transparent hover:text-primary">
-                        <ArrowLeft className="mr-2 h-4 w-4" />
-                        Back to Blog
-                    </Button>
-                </Link>
+        <>
+            <ReadingProgressBar />
 
-                <div className="space-y-4">
-                    <div className="flex flex-wrap gap-2">
-                        {post.topics.map((topic) => (
-                            <Badge key={topic} variant="secondary">
-                                {topic}
-                            </Badge>
-                        ))}
+            <article className="container mx-auto px-6 md:px-8 py-12 md:py-20 lg:py-24 max-w-6xl">
+                <div className="grid grid-cols-1 xl:grid-cols-[1fr_260px] gap-12 xl:gap-16 items-start">
+                    {/* Main Content Column */}
+                    <div className="max-w-3xl w-full mx-auto xl:mx-0 space-y-8">
+                        <div>
+                            <Link href="/blog">
+                                <Button variant="ghost" className="pl-0 hover:bg-transparent hover:text-primary">
+                                    <ArrowLeft className="mr-2 h-4 w-4" />
+                                    Back to Blog
+                                </Button>
+                            </Link>
+                        </div>
+
+                        {/* Article Header */}
+                        <div className="space-y-4">
+                            <div className="flex flex-wrap gap-2">
+                                {post.topics.map((topic) => (
+                                    <Link key={topic} href={`/blog?topic=${encodeURIComponent(topic)}`}>
+                                        <Badge variant="secondary" className="hover:bg-secondary/70 transition-colors cursor-pointer">
+                                            {topic}
+                                        </Badge>
+                                    </Link>
+                                ))}
+                            </div>
+                            <h1 className="text-page-h1">{post.title}</h1>
+                            <p className="flex items-center gap-2 text-muted-foreground text-base sm:text-lg">
+                                <span>{post.date}</span>
+                                <span aria-hidden="true" className="text-muted-foreground/50">·</span>
+                                <span className="inline-flex items-center gap-1">
+                                    <Clock className="h-4 w-4" /> {post.readingTime} min read
+                                </span>
+                            </p>
+                        </div>
+
+                        {/* Markdown Body */}
+                        <div className="prose prose-zinc dark:prose-invert prose-blog max-w-none">
+                            <ReactMarkdown
+                                remarkPlugins={[remarkGfm, remarkMath]}
+                                rehypePlugins={[rehypeSlug, rehypeKatex, rehypeRaw, rehypeHighlight]}
+                                components={{
+                                    p: ({ node, ...props }) => <p className="mb-8 leading-relaxed" {...props} />,
+                                    blockquote: ({ node, ...props }) => (
+                                        <blockquote className="not-prose border-l-4 border-[hsl(var(--accent-strong))] pl-4 italic my-8 text-lg leading-relaxed text-muted-foreground" {...props} />
+                                    ),
+                                    h1: ({ node, ...props }) => <h1 className="font-display text-3xl font-semibold mt-12 mb-6 tracking-tight" {...props} />,
+                                    h2: ({ node, ...props }) => <h2 className="font-display text-2xl font-semibold mt-10 mb-5 tracking-tight" {...props} />,
+                                    h3: ({ node, ...props }) => <h3 className="font-display text-xl font-semibold mt-8 mb-4 tracking-tight" {...props} />,
+                                    ul: ({ node, ...props }) => <ul className="list-disc list-outside ml-6 mb-4" {...props} />,
+                                    ol: ({ node, ...props }) => <ol className="list-decimal list-outside ml-6 mb-4" {...props} />,
+                                    li: ({ node, ...props }) => <li className="mb-2" {...props} />,
+                                    pre: ({ node, ...props }) => <CodeBlock {...props} />,
+                                    code: ({ node, className, children, ...props }: any) => {
+                                        const match = /language-(\w+)/.exec(className || "")
+                                        const isInline = !match
+                                        return isInline ? (
+                                            <code className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono text-[hsl(var(--accent-strong))] font-medium" {...props}>
+                                                {children}
+                                            </code>
+                                        ) : (
+                                            <code className={className} {...props}>
+                                                {children}
+                                            </code>
+                                        )
+                                    },
+                                    // @ts-ignore
+                                    aside: ({ node, ...props }) => (
+                                        <div className="not-prose rounded-lg border-l-4 border-[hsl(var(--accent-strong))] bg-muted/40 text-card-foreground shadow-sm p-6 flex gap-4 items-start">
+                                            <Quote className="h-6 w-6 text-[hsl(var(--accent-strong))] shrink-0 mt-1" />
+                                            <div className="prose dark:prose-invert prose-blog max-w-none flex-1">
+                                                {props.children}
+                                            </div>
+                                        </div>
+                                    ),
+                                    img: ({ node, ...props }) => (
+                                        <img className="rounded-lg border shadow-sm my-8 w-full" {...props} alt={props.alt || ""} />
+                                    ),
+                                    table: ({ node, ...props }) => (
+                                        <div className="overflow-x-auto my-8">
+                                            <table className="min-w-full divide-y divide-border" {...props} />
+                                        </div>
+                                    ),
+                                    th: ({ node, ...props }) => <th className="px-4 py-2 bg-muted font-semibold text-left" {...props} />,
+                                    td: ({ node, ...props }) => <td className="px-4 py-2 border-t border-border" {...props} />,
+                                }}
+                            >
+                                {post.content}
+                            </ReactMarkdown>
+                        </div>
+
+                        {/* Bottom Navigation */}
+                        <PostNavigation
+                            prevPost={navInfo.prevPost}
+                            nextPost={navInfo.nextPost}
+                            relatedPosts={navInfo.relatedPosts}
+                        />
+
+                        {/* Giscus Comments Section */}
+                        <GiscusComments />
                     </div>
-                    <h1 className="text-page-h1">{post.title}</h1>
-                    <p className="flex items-center gap-2 text-muted-foreground text-lg">
-                        <span>{post.date}</span>
-                        <span aria-hidden="true" className="text-muted-foreground/50">·</span>
-                        <span className="inline-flex items-center gap-1">
-                            <Clock className="h-4 w-4" /> {post.readingTime} min read
-                        </span>
-                    </p>
-                </div>
 
-                <div className="prose prose-zinc dark:prose-invert prose-blog max-w-none">
-                    <ReactMarkdown
-                        remarkPlugins={[remarkGfm, remarkMath]}
-                        rehypePlugins={[rehypeSlug, rehypeKatex, rehypeRaw, rehypeHighlight]}
-                        components={{
-                            p: ({ node, ...props }) => <p className="mb-8 leading-relaxed" {...props} />,
-                            blockquote: ({ node, ...props }) => (
-                                <blockquote className="not-prose border-l-4 border-[hsl(var(--accent-strong))] pl-4 italic my-8 text-lg leading-relaxed text-muted-foreground" {...props} />
-                            ),
-                            h1: ({ node, ...props }) => <h1 className="font-display text-3xl font-semibold mt-12 mb-6 tracking-tight" {...props} />,
-                            h2: ({ node, ...props }) => <h2 className="font-display text-2xl font-semibold mt-10 mb-5 tracking-tight" {...props} />,
-                            h3: ({ node, ...props }) => <h3 className="font-display text-xl font-semibold mt-8 mb-4 tracking-tight" {...props} />,
-                            ul: ({ node, ...props }) => <ul className="list-disc list-outside ml-6 mb-4" {...props} />,
-                            ol: ({ node, ...props }) => <ol className="list-decimal list-outside ml-6 mb-4" {...props} />,
-                            li: ({ node, ...props }) => <li className="mb-2" {...props} />,
-                            code: ({ node, className, children, ...props }: any) => {
-                                const match = /language-(\w+)/.exec(className || "")
-                                const isInline = !match
-                                return isInline ? (
-                                    <code className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono text-[hsl(var(--accent-strong))]" {...props}>
-                                        {children}
-                                    </code>
-                                ) : (
-                                    <code className={className} {...props}>
-                                        {children}
-                                    </code>
-                                )
-                            },
-                            // @ts-ignore
-                            aside: ({ node, ...props }) => (
-                                <div className="not-prose rounded-lg border-l-4 border-[hsl(var(--accent-strong))] bg-muted/40 text-card-foreground shadow-sm p-6 flex gap-4 items-start">
-                                    <Quote className="h-6 w-6 text-[hsl(var(--accent-strong))] shrink-0 mt-1" />
-                                    <div className="prose dark:prose-invert prose-blog max-w-none flex-1">
-                                        {props.children}
-                                    </div>
-                                </div>
-                            ),
-                            img: ({ node, ...props }) => (
-                                <img className="rounded-lg border shadow-sm my-8 w-full" {...props} alt={props.alt || ""} />
-                            ),
-                            table: ({ node, ...props }) => (
-                                <div className="overflow-x-auto my-8">
-                                    <table className="min-w-full divide-y divide-border" {...props} />
-                                </div>
-                            ),
-                            th: ({ node, ...props }) => <th className="px-4 py-2 bg-muted font-semibold text-left" {...props} />,
-                            td: ({ node, ...props }) => <td className="px-4 py-2 border-t border-border" {...props} />,
-                        }}
-                    >
-                        {post.content}
-                    </ReactMarkdown>
+                    {/* Desktop Sticky Table of Contents */}
+                    <aside className="hidden xl:block sticky top-24 max-h-[calc(100vh-8rem)]">
+                        <TableOfContents />
+                    </aside>
                 </div>
-            </div>
-        </article>
+            </article>
+
+            {/* Floating Action Bar (Back to Top & Copy Link) */}
+            <FloatingActions />
+        </>
     )
 }

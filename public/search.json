@@ -106,6 +106,16 @@
   },
   {
     "type": "Post",
+    "title": "Geodesic Momentum Sampling for Masked Discrete Diffusion Language Models",
+    "description": "An Inference-Time Fisher-Rao Extrapolation Method.",
+    "tags": [
+      "Artificial Intelligence"
+    ],
+    "url": "/blog/geodesic-momentum-sampling",
+    "date": "2026-07-11"
+  },
+  {
+    "type": "Post",
     "title": "괴테는 모든 것을 말했다 - 스즈키 유이",
     "description": "2025년 아쿠타가와상 수상작. 괴테 전문가가 티백 속 명언의 진위를 찾아가는 여정을 통해 학계의 권위, 인용의 의미, 그리고 지성의 욕망을 탐구하는 소설. 세련된 필력과 흥미로운 반전, 그러나 아쉬움도 남는 젊은 작가의 야심작.",
     "tags": [
@@ -123,6 +133,17 @@
     ],
     "url": "/blog/idea",
     "date": "2024-12-03"
+  },
+  {
+    "type": "Post",
+    "title": "안과 겉 - 알베르 카뮈",
+    "description": "삶의 안쪽(가난과 절망)과 겉(빛과 생명)을 동시에 응시하는 카뮈의 원초적 반항과 시선.",
+    "tags": [
+      "Book Review",
+      "Philosophy"
+    ],
+    "url": "/blog/inside-and-outside-albert-camus",
+    "date": "2026-08-24"
   },
   {
     "type": "Post",
@@ -278,11 +299,11 @@
   },
   {
     "type": "Project",
-    "title": "JYS1025.github.io",
-    "description": "Personal Portfolio Blog",
+    "title": "svg-agentic-slm",
+    "description": "An agentic pipeline utilizing Small Language Models (SLMs) to generate, validate, and refine Scalable Vector Graphics (SVG) from natural language descriptions",
     "tags": [],
-    "url": "https://github.com/JYS1025/JYS1025.github.io",
-    "date": "2026-07-10T05:51:23Z"
+    "url": "https://github.com/JYS1025/svg-agentic-slm",
+    "date": "2026-08-19T04:50:53Z"
   },
   {
     "type": "Project",
@@ -290,7 +311,23 @@
     "description": "github public profile",
     "tags": [],
     "url": "https://github.com/JYS1025/JYS1025",
-    "date": "2026-07-06T09:08:21Z"
+    "date": "2026-08-03T10:56:10Z"
+  },
+  {
+    "type": "Project",
+    "title": "JYS1025.github.io",
+    "description": "Personal Portfolio Blog",
+    "tags": [],
+    "url": "https://github.com/JYS1025/JYS1025.github.io",
+    "date": "2026-07-15T04:24:31Z"
+  },
+  {
+    "type": "Project",
+    "title": "geodesic-momentum-dlm-sampling",
+    "description": "Inference-time Fisher–Rao extrapolation for accelerating low-step sampling in pretrained MDLM and SEDD models.",
+    "tags": [],
+    "url": "https://github.com/JYS1025/geodesic-momentum-dlm-sampling",
+    "date": "2026-07-11T04:36:56Z"
   },
   {
     "type": "Project",
@@ -317,14 +354,6 @@
     ],
     "url": "https://github.com/JYS1025/pic-to-poem",
     "date": "2026-05-28T15:02:56Z"
-  },
-  {
-    "type": "Project",
-    "title": "svg-agentic-slm",
-    "description": "An agentic pipeline utilizing Small Language Models (SLMs) to generate, validate, and refine Scalable Vector Graphics (SVG) from natural language descriptions",
-    "tags": [],
-    "url": "https://github.com/JYS1025/svg-agentic-slm",
-    "date": "2026-05-28T15:01:15Z"
   },
   {
     "type": "Project",

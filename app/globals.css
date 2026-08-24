@@ -40,9 +40,9 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
 
-  /* Expose next/font CSS variables to Tailwind theme */
-  --font-sans: var(--font-sans);
-  --font-display: var(--font-display);
+  /* Expose next/font CSS variables with Pretendard & CJK fallback to Tailwind theme */
+  --font-sans: var(--font-sans), "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  --font-display: var(--font-display), "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
 
 @layer base {
@@ -157,22 +157,55 @@
      tech-blog sensibility while body stays in a humanist grotesk. */
   .text-page-h1 {
     @apply font-display text-4xl sm:text-5xl font-semibold tracking-tight;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    text-wrap: balance;
   }
   .text-page-lead {
     @apply text-xl text-muted-foreground;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    text-wrap: pretty;
   }
   .text-section-h2 {
     @apply font-display text-3xl font-semibold tracking-tight;
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
   .text-subsection-h2 {
     @apply font-display text-2xl font-semibold tracking-tight;
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
   .text-section-h3 {
     @apply font-display text-lg font-semibold tracking-tight;
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
 
-  /* Long-form prose — comfortable line-height for mixed CJK/latin */
+  /* Long-form prose — comfortable line-height, Korean word-break, and micro-typography */
   .prose-blog {
-    line-height: 1.75;
+    line-height: 1.8;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    text-wrap: pretty;
+    letter-spacing: -0.01em;
+  }
+
+  /* Scroll margin for heading anchor targets so sticky navbar doesn't obscure them */
+  .prose-blog h1,
+  .prose-blog h2,
+  .prose-blog h3,
+  .prose-blog h4 {
+    scroll-margin-top: 6rem;
+  }
+
+  /* KaTeX formula display overflow protection for mobile viewports */
+  .katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.5rem 0;
   }
 }
+
+

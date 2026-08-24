@@ -5,20 +5,41 @@ import matter from 'gray-matter'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
+let ignoredFilesCache: Set<string> | null = null
+
 /**
- * Returns true when a given path is ignored by .gitignore. Used to keep
- * confidential posts (those listed in .gitignore) out of the public
- * build's listings, search index, and topic counts. Falls back to
- * false (treat as public) when git is unavailable so local builds and
- * non-git environments still work.
+ * Batch-fetches all gitignored files in posts/ in a single command.
+ * Avoids spawning dozens of subshells on every getPosts() call.
  */
-function isGitIgnored(absPath: string): boolean {
+function getIgnoredFiles(): Set<string> {
+    if (ignoredFilesCache) return ignoredFilesCache
+    ignoredFilesCache = new Set()
     try {
-        execSync(`git check-ignore -q ${JSON.stringify(absPath)}`, { stdio: 'ignore' })
-        return true
+        const output = execSync('git status --ignored --porcelain=v1 posts/', {
+            encoding: 'utf8',
+            stdio: ['pipe', 'pipe', 'ignore'],
+        })
+        output.split('\n').forEach((line) => {
+            if (line.startsWith('!! ')) {
+                let p = line.slice(3).trim()
+                if (p.startsWith('"') && p.endsWith('"')) {
+                    try {
+                        p = JSON.parse(p)
+                    } catch {}
+                }
+                const base = path.basename(p)
+                ignoredFilesCache!.add(base.normalize('NFC'))
+            }
+        })
     } catch {
-        return false
+        // Fallback: treat as public if git is unavailable
     }
+    return ignoredFilesCache
+}
+
+function isGitIgnored(fileName: string): boolean {
+    const ignoredSet = getIgnoredFiles()
+    return ignoredSet.has(fileName.normalize('NFC'))
 }
 
 export interface BlogPost {
@@ -53,7 +74,13 @@ function estimateReadingTime(content: string): number {
     return minutes
 }
 
+let postsCache: BlogPost[] | null = null
+
 export function getPosts(): BlogPost[] {
+    if (postsCache && process.env.NODE_ENV === 'production') {
+        return postsCache
+    }
+
     // Get file names under /posts
     if (!fs.existsSync(postsDirectory)) {
         return []
@@ -62,11 +89,7 @@ export function getPosts(): BlogPost[] {
     const fileNames = fs.readdirSync(postsDirectory)
     const allPostsData = fileNames
         .filter((fileName) => fileName.toLowerCase().endsWith('.md'))
-        .filter((fileName) => {
-            // Exclude gitignored (confidential) posts from the public listings.
-            const fullPath = path.join(postsDirectory, fileName)
-            return !isGitIgnored(fullPath)
-        })
+        .filter((fileName) => !isGitIgnored(fileName))
         .map((fileName) => {
             // Remove ".md" (case insensitive) from file name to get slug
             const slug = fileName.replace(/\.md$/i, '').normalize('NFC')
@@ -168,7 +191,8 @@ export function getPostBySlug(slug: string): BlogPost | null {
 
         // Block direct access to gitignored (confidential) posts even when
         // their slug is guessed — they must never render on the public site.
-        if (isGitIgnored(fullPath)) {
+        const fileName = targetFileName || `${decodedSlug}.md`
+        if (isGitIgnored(fileName)) {
             return null
         }
 
@@ -221,4 +245,45 @@ export function getAllTopics(): Topic[] {
         slug: topic.toLowerCase().replace(/\s+/g, '-'),
         count: topicCount[topic],
     })).sort((a, b) => b.count - a.count)
+}
+
+export interface PostNavigationInfo {
+    prevPost: BlogPost | null
+    nextPost: BlogPost | null
+    relatedPosts: BlogPost[]
+}
+
+export function getPostNavigation(currentSlug: string): PostNavigationInfo {
+    const posts = getPosts()
+    const decodedSlug = decodeURIComponent(currentSlug).normalize('NFC')
+    const currentIndex = posts.findIndex((p) => p.slug === decodedSlug)
+
+    if (currentIndex === -1) {
+        return { prevPost: null, nextPost: null, relatedPosts: [] }
+    }
+
+    const currentPost = posts[currentIndex]
+
+    // Chronological order: posts are sorted newest first.
+    // So nextPost (newer) is currentIndex - 1, prevPost (older) is currentIndex + 1.
+    const nextPost = currentIndex > 0 ? posts[currentIndex - 1] : null
+    const prevPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null
+
+    // Related posts: posts with overlapping topics, excluding currentPost
+    const relatedPosts = posts
+        .filter((p) => p.slug !== currentPost.slug)
+        .map((p) => {
+            const sharedCount = p.topics.filter((t) => currentPost.topics.includes(t)).length
+            return { post: p, sharedCount }
+        })
+        .filter((item) => item.sharedCount > 0)
+        .sort((a, b) => b.sharedCount - a.sharedCount)
+        .slice(0, 2)
+        .map((item) => item.post)
+
+    return {
+        prevPost,
+        nextPost,
+        relatedPosts,
+    }
 }
